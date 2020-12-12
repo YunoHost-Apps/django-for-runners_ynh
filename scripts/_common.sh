@@ -28,7 +28,7 @@ pkg_dependencies="build-essential python3-dev python3-pip python3-virtualenv git
 	postgresql postgresql-contrib python3-ldap libldap2-dev libsasl2-dev"
 
 # Django-For-Runners's version for PIP and settings file
-django-for-runners_version="0.12.0rc2"
+for_runners_version="0.12.0rc2"
 
 # Extra python packages:
 pypi_extras="django-redis django-auth-ldap"

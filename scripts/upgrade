@@ -97,7 +97,7 @@ chown -R "$app" "$final_path"
   set -o nounset
   ynh_exec_as $app $final_path/venv/bin/pip install --upgrade pip
   ynh_exec_as $app $final_path/venv/bin/pip install --upgrade setuptools wheel psycopg2-binary
-  ynh_exec_as $app $final_path/venv/bin/pip install --upgrade django-for-runners=="$django-for-runners_version"
+  ynh_exec_as $app $final_path/venv/bin/pip install --upgrade django-for-runners=="$for_runners_version"
 	ynh_exec_as $app $final_path/venv/bin/pip install --upgrade ${pypi_extras}
 )
 
