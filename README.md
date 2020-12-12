@@ -99,7 +99,7 @@ BASE_PATH:/opt/yunohost/django-for-runners
 System check identified no issues (0 silenced).
 
 root@yunohost:~# tail -f /var/log/django-for-runners/django-for-runners.log
-root@yunohost:~# cat /etc/systemd/system/django-for-runners.service
+root@yunohost:~# cat /etc/systemd/system/for_runners.service
 
 root@yunohost:~# systemctl reload-or-restart django-for-runners
 root@yunohost:~# journalctl --unit=django-for-runners --follow

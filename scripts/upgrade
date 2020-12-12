@@ -79,7 +79,7 @@ ynh_system_user_create --username="$app" --home_dir="$final_path" --use_shell
 #=================================================
 ynh_script_progression --message="Configuring a systemd service..."
 
-ynh_add_systemd_config --service="$app" --template="django-for-runners.service"
+ynh_add_systemd_config --service="$app" --template="for_runners.service"
 
 #=================================================
 # UPGRADE PYINVENTORY
