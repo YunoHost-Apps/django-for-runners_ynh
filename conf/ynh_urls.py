@@ -1,21 +1,23 @@
 from django.conf import settings
 from django.contrib import admin
 from django.urls import path
-from django.views.generic import RedirectView
+
+# def debug_view(request):
+#     """ debug request.META """
+#     if not request.user.is_authenticated:
+#         from django.shortcuts import redirect
+#         return redirect('admin:index')
+#
+#     import pprint
+#     meta = pprint.pformat(request.META)
+#     html = f'<html><body>request.META: <pre>{meta}</pre></body></html>'
+#     from django.http import HttpResponse
+#     return HttpResponse(html)
 
 
-# settings.PATH_URL is the $YNH_APP_ARG_PATH
-if settings.PATH_URL:
-    admin.autodiscover()
+admin.autodiscover()
 
-    urlpatterns = [
-        # TODO:
-        # XXX: Hack - the MEDIA_URL contains the "PATH_URL" already:
-        # path(settings.MEDIA_URL.lstrip('/'), include('django_tools.serve_media_app.urls')),
-
-        path(f'{settings.PATH_URL}/admin/', admin.site.urls),
-        path('', RedirectView.as_view(pattern_name='admin:index')),
-    ]
-else:
-    # Installed to domain root, without a path prefix?
-    from inventory_project.urls import urlpatterns  # noqa
+urlpatterns = [
+    # path(f'{settings.PATH_URL}/debug/', debug_view),
+    path(f'{settings.PATH_URL}/', admin.site.urls),
+]
