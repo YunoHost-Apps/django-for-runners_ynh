@@ -25,14 +25,14 @@ log_file="${log_path}/django-for-runners.log"
 #=================================================
 
 # dependencies used by the app
-pkg_dependencies="build-essential python3-dev python3-pip python3-virtualenv git \
-	postgresql postgresql-contrib python3-ldap libldap2-dev libsasl2-dev"
+pkg_dependencies="build-essential python3-dev python3-pip python3-venv git \
+	postgresql postgresql-contrib"
 
 # Django-For-Runners's version for PIP and settings file
 for_runners_version="0.12.0rc2"
 
 # Extra python packages:
-pypi_extras="django-redis django-auth-ldap"
+pypi_extras="django-redis"
 
 #=================================================
 # Redis HELPERS
