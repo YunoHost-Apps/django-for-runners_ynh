@@ -1,9 +1,9 @@
 # Django-For-Runners for YunoHost
 
-[![Integration level](https://dash.yunohost.org/integration/django-for-runners.svg)](https://dash.yunohost.org/appci/app/django-for-runners) ![](https://ci-apps.yunohost.org/ci/badges/django-for-runners.status.svg) ![](https://ci-apps.yunohost.org/ci/badges/django-for-runners.maintain.svg)  
+[![Integration level](https://dash.yunohost.org/integration/django-for-runners.svg)](https://dash.yunohost.org/appci/app/django-for-runners) ![](https://ci-apps.yunohost.org/ci/badges/django-for-runners.status.svg) ![](https://ci-apps.yunohost.org/ci/badges/django-for-runners.maintain.svg)
 [![Install Django-For-Runners with YunoHost](https://install-app.yunohost.org/install-with-yunohost.png)](https://install-app.yunohost.org/?app=django-for-runners)
 
-> *This package allows you to install Django-For-Runners quickly and simply on a YunoHost server.  
+> *This package allows you to install Django-For-Runners quickly and simply on a YunoHost server.
 If you don't have YunoHost, please consult [the guide](https://yunohost.org/#/install) to learn how to install it.*
 
 Current status is pre-alpha: This app doesn't work, yet ;)
@@ -31,9 +31,16 @@ You can edit the file `$final_path/local_settings.py` to enable or disable featu
 
 # Miscellaneous
 
-## LDAP connection
 
-Supported by https://github.com/django-auth-ldap/django-auth-ldap
+## SSO authentication
+
+[SSOwat](https://github.com/YunoHost/SSOwat) is fully supported:
+
+* First user (`$YNH_APP_ARG_ADMIN`) will be created as Django's super user
+* All new users will be created as normal users
+* Login via SSO is fully supported
+* User Email, First / Last name will be updated from SSO data
+
 
 ## Links
 
@@ -111,20 +118,20 @@ For quicker developing of Django-For-Runners in the context of YunoHost app,
 it's possible to run the Django developer server with the settings
 and urls made for YunoHost installation.
 
-For this, just run `local_test.py` in a Django-For-Runners virtualenv. 
-
 e.g.:
 ```bash
-~$ git clone https://github.com/jedie/Django-For-Runners.git
 ~$ git clone https://github.com/YunoHost-Apps/django-for-runners_ynh.git
-~$ cd Django-For-Runners/
-~/Django-For-Runners$ make install
-~/Django-For-Runners$ poetry shell
-(django-for-runners-yd_5sxYx-py3.8) ~/Django-For-Runners$ cd ../django-for-runners_ynh/
-(django-for-runners-yd_5sxYx-py3.8) ~/django-for-runners_ynh$ ./local_test.py
-...
-Django version 2.2.17, using settings 'ynh_django-for-runners_settings'
-Starting development server at http://127.0.0.1:8000/
+~$ cd django-for-runners_ynh/
+~/django-for-runners_ynh$ make
+install-poetry         install or update poetry
+install                install project via poetry
+update                 update the sources and installation
+local-test             Run local_test.py to run the project locally
+local-diff-settings    Run "manage.py diffsettings" with local test
+
+~/django-for-runners_ynh$ make install-poetry
+~/django-for-runners_ynh$ make install
+~/django-for-runners_ynh$ make local-test
 ```
 
 Notes:
