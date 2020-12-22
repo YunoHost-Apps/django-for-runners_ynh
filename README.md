@@ -111,20 +111,20 @@ For quicker developing of Django-For-Runners in the context of YunoHost app,
 it's possible to run the Django developer server with the settings
 and urls made for YunoHost installation.
 
-For this, just run `local_test.py` in a Django-For-Runners virtualenv. 
-
 e.g.:
 ```bash
-~$ git clone https://github.com/jedie/Django-For-Runners.git
 ~$ git clone https://github.com/YunoHost-Apps/django-for-runners_ynh.git
-~$ cd Django-For-Runners/
-~/Django-For-Runners$ make install
-~/Django-For-Runners$ poetry shell
-(django-for-runners-yd_5sxYx-py3.8) ~/Django-For-Runners$ cd ../django-for-runners_ynh/
-(django-for-runners-yd_5sxYx-py3.8) ~/django-for-runners_ynh$ ./local_test.py
-...
-Django version 2.2.17, using settings 'ynh_django-for-runners_settings'
-Starting development server at http://127.0.0.1:8000/
+~$ cd django-for-runners_ynh/
+~/django-for-runners_ynh$ make
+install-poetry         install or update poetry
+install                install project via poetry
+update                 update the sources and installation
+local-test             Run local_test.py to run the project locally
+local-diff-settings    Run "manage.py diffsettings" with local test
+
+~/django-for-runners_ynh$ make install-poetry
+~/django-for-runners_ynh$ make install
+~/django-for-runners_ynh$ make local-test
 ```
 
 Notes:
