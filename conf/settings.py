@@ -109,7 +109,7 @@ CACHES = {
     'default': {
         'BACKEND': 'django_redis.cache.RedisCache',
         'LOCATION': 'redis://127.0.0.1:6379/__REDIS_DB__',
-        # If redis is running on same host as Django-For-Runners, you might
+        # If redis is running on same host as Django-ForRunners, you might
         # want to use unix sockets instead:
         # 'LOCATION': 'unix:///var/run/redis/redis.sock?db=1',
         'OPTIONS': {
