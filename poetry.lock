@@ -81,7 +81,7 @@ webencodings = "*"
 
 [[package]]
 name = "bx-py-utils"
-version = "0.0.4"
+version = "20"
 description = "Various Python / Django utility functions"
 category = "main"
 optional = false
@@ -89,6 +89,7 @@ python-versions = ">=3.6,<4.0.0"
 
 [package.dependencies]
 django = "*"
+python-stdnum = "*"
 
 [[package]]
 name = "certifi"
@@ -250,7 +251,7 @@ sqlparse = ">=0.2.0"
 
 [[package]]
 name = "django-for-runners"
-version = "0.12.0rc2"
+version = "0.12.0rc3"
 description = "Store your GPX tracks of your running (or other sports activity) in django."
 category = "main"
 optional = false
@@ -258,9 +259,8 @@ python-versions = ">=3.7,<4.0.0"
 
 [package.dependencies]
 autotask = "*"
-bx_py_utils = "0.0.4"
+bx_py_utils = "*"
 click = "*"
-colorama = "*"
 colorlog = "*"
 django = ">=2.2.0,<2.3.0"
 django-axes = "*"
@@ -760,6 +760,19 @@ python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,>=2.7"
 six = ">=1.5"
 
 [[package]]
+name = "python-stdnum"
+version = "1.15"
+description = "Python module to handle standardized numbers and codes"
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.extras]
+soap = ["zeep"]
+soap-alt = ["suds"]
+soap-fallback = ["pysimplesoap"]
+
+[[package]]
 name = "pytz"
 version = "2020.5"
 description = "World timezone definitions, modern and historical"
@@ -1004,7 +1017,7 @@ testing = ["pytest (>=3.5,!=3.7.3)", "pytest-checkdocs (>=1.2.3)", "pytest-flake
 [metadata]
 lock-version = "1.1"
 python-versions = ">=3.7,<4.0.0"
-content-hash = "67e412cce9507264e6a6a4462b3f62233643b70d583b9e6f196e5a6383d39191"
+content-hash = "c1e062a32cef762fb6a112c71f6b410e5e69789db290c9c05dcc22a4b9a3036c"
 
 [metadata.files]
 appdirs = [
@@ -1034,8 +1047,8 @@ bleach = [
     {file = "bleach-3.2.1.tar.gz", hash = "sha256:52b5919b81842b1854196eaae5ca29679a2f2e378905c346d3ca8227c2c66080"},
 ]
 bx-py-utils = [
-    {file = "bx_py_utils-0.0.4-py3-none-any.whl", hash = "sha256:7258ead153f9b2238c8ec8d8892f79d4e88543dd7ff5fb540cb699a7c36b7f0b"},
-    {file = "bx_py_utils-0.0.4.tar.gz", hash = "sha256:bf8d3a37a8e2ffee10a4935668223ec3c3aefcb9807e10003ee62f0e9667b17d"},
+    {file = "bx_py_utils-20-py3-none-any.whl", hash = "sha256:8b7d21e89e5cc99e400ab0bd910632c2d79c7b27aa45afaaa65f4dec2274496e"},
+    {file = "bx_py_utils-20.tar.gz", hash = "sha256:4fc9b3a78bf82a02ee5d823f45af4623f8c3bec360434b4ae4b87d01cc0ff03a"},
 ]
 certifi = [
     {file = "certifi-2020.12.5-py2.py3-none-any.whl", hash = "sha256:719a74fb9e33b9bd44cc7f3a8d94bc35e4049deebe19ba7d8e108280cfd59830"},
@@ -1144,8 +1157,8 @@ django-debug-toolbar = [
     {file = "django_debug_toolbar-3.2-py3-none-any.whl", hash = "sha256:9e5a25d0c965f7e686f6a8ba23613ca9ca30184daa26487706d4829f5cfb697a"},
 ]
 django-for-runners = [
-    {file = "django-for-runners-0.12.0rc2.tar.gz", hash = "sha256:258104f479616baa9a19a084c6434912b576f5f3fd80eb10a44e524e52abe97a"},
-    {file = "django_for_runners-0.12.0rc2-py3-none-any.whl", hash = "sha256:e5c37be705248ae66c6e3625482eec21763739fd486a9be77d761e6887f7b1a7"},
+    {file = "django-for-runners-0.12.0rc3.tar.gz", hash = "sha256:5ff9d5b5705a4d431ac27bc863f1718f7a0768088d216c2274dba7dd0d15fb92"},
+    {file = "django_for_runners-0.12.0rc3-py3-none-any.whl", hash = "sha256:16e7efb59fbd54c72233fc278dffd3a7f68d0601feb9b8c32929bc65c9cf2cb5"},
 ]
 django-import-export = [
     {file = "django-import-export-2.5.0.tar.gz", hash = "sha256:c39c003bfc803fb63ba7742562f1667603a4a8d7426261845d75ce8582d40f48"},
@@ -1499,6 +1512,10 @@ pytest-django = [
 python-dateutil = [
     {file = "python-dateutil-2.8.1.tar.gz", hash = "sha256:73ebfe9dbf22e832286dafa60473e4cd239f8592f699aa5adaf10050e6e1823c"},
     {file = "python_dateutil-2.8.1-py2.py3-none-any.whl", hash = "sha256:75bb3f31ea686f1197762692a9ee6a7550b59fc6ca3a1f4b5d7e32fb98e2da2a"},
+]
+python-stdnum = [
+    {file = "python-stdnum-1.15.tar.gz", hash = "sha256:ff0e4d2b8731711cf2a73d22964139208088b4bd1a3e3b0c4f78d6e823dd8923"},
+    {file = "python_stdnum-1.15-py2.py3-none-any.whl", hash = "sha256:46c05dff2d5ff89b12cc63ab54cca1e4788e4e3087c163a1b7434a53fa926f28"},
 ]
 pytz = [
     {file = "pytz-2020.5-py2.py3-none-any.whl", hash = "sha256:16962c5fb8db4a8f63a26646d8886e9d769b6c511543557bc84e9569fb9a9cb4"},
