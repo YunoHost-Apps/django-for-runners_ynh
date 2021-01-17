@@ -1,9 +1,9 @@
-# Django-For-Runners for YunoHost
+# Django-ForRunners for YunoHost
 
 [![Integration level](https://dash.yunohost.org/integration/django-for-runners.svg)](https://dash.yunohost.org/appci/app/django-for-runners) ![](https://ci-apps.yunohost.org/ci/badges/django-for-runners.status.svg) ![](https://ci-apps.yunohost.org/ci/badges/django-for-runners.maintain.svg)
-[![Install Django-For-Runners with YunoHost](https://install-app.yunohost.org/install-with-yunohost.png)](https://install-app.yunohost.org/?app=django-for-runners)
+[![Install Django-ForRunners with YunoHost](https://install-app.yunohost.org/install-with-yunohost.png)](https://install-app.yunohost.org/?app=django-for-runners)
 
-> *This package allows you to install Django-For-Runners quickly and simply on a YunoHost server.
+> *This package allows you to install Django-ForRunners quickly and simply on a YunoHost server.
 If you don't have YunoHost, please consult [the guide](https://yunohost.org/#/install) to learn how to install it.*
 
 Current status is pre-alpha: This app doesn't work, yet ;)
@@ -12,7 +12,7 @@ Pull requests welcome ;)
 
 ## Overview
 
-Django-For-Runners is a libre web-based management to catalog things including state and location etc. using Python/Django.
+Django-ForRunners is a libre web-based management to catalog things including state and location etc. using Python/Django.
 
 ## Screenshots
 
@@ -26,7 +26,7 @@ An admin user is created at installation, the login is what you provided at inst
 
 ## Settings and upgrades
 
-Almost everything related to Django-For-Runners's configuration is handled in a `"../conf/ynh_for_runners_settings.py"` file.
+Almost everything related to Django-ForRunners's configuration is handled in a `"../conf/ynh_for_runners_settings.py"` file.
 You can edit the file `$final_path/local_settings.py` to enable or disable features.
 
 # Miscellaneous
@@ -34,7 +34,7 @@ You can edit the file `$final_path/local_settings.py` to enable or disable featu
 
 ## SSO authentication
 
-[SSOwat](https://github.com/YunoHost/SSOwat) is fully supported:
+[SSOwat](https://github.com/YunoHost/SSOwat) is fully supported via [django_ynh](https://github.com/YunoHost-Apps/django_ynh):
 
 * First user (`$YNH_APP_ARG_ADMIN`) will be created as Django's super user
 * All new users will be created as normal users
@@ -45,7 +45,7 @@ You can edit the file `$final_path/local_settings.py` to enable or disable featu
 ## Links
 
  * Report a bug about this package: https://github.com/YunoHost-Apps/django-for-runners_ynh
- * Report a bug about Django-For-Runners itself: https://github.com/jedie/django-for-runners
+ * Report a bug about Django-ForRunners itself: https://github.com/jedie/django-for-runners
  * YunoHost website: https://yunohost.org/
 
 ---
@@ -99,7 +99,7 @@ drwxr-xr-x 6 django-for-runners django-for-runners    6 Dec  8 08:37 venv
 root@yunohost:~# cd /opt/yunohost/django-for-runners/
 root@yunohost:/opt/yunohost/django-for-runners# source venv/bin/activate
 (venv) root@yunohost:/opt/yunohost/django-for-runners# ./manage.py check
-Django-For-Runners v0.12.0rc2 (Django v2.2.17)
+Django-ForRunners v0.12.0rc3 (Django v2.2.17)
 DJANGO_SETTINGS_MODULE='ynh_django-for-runners_settings'
 PROJECT_PATH:/opt/yunohost/django-for-runners/venv/lib/python3.7/site-packages
 BASE_PATH:/opt/yunohost/django-for-runners
@@ -114,7 +114,7 @@ root@yunohost:~# journalctl --unit=django-for-runners --follow
 
 ## local test
 
-For quicker developing of Django-For-Runners in the context of YunoHost app,
+For quicker developing of Django-ForRunners in the context of YunoHost app,
 it's possible to run the Django developer server with the settings
 and urls made for YunoHost installation.
 
