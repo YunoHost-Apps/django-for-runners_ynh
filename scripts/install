@@ -101,7 +101,7 @@ ynh_system_user_create --username="$app" --home_dir="$final_path" --use_shell
 #=================================================
 # PIP INSTALLATION
 #=================================================
-ynh_script_progression --message="Install Django-For-Runners using PIP..." --weight=80
+ynh_script_progression --message="Install project via pip..." --weight=80
 
 python3 -m venv "${final_path}/venv"
 chown -R "$app" "$final_path"
@@ -231,7 +231,7 @@ then
 fi
 
 #=================================================
-# Start django-for-runners via systemd
+# Start pyinventory via systemd
 #=================================================
 ynh_script_progression --message="Starting Django-For-Runners's services..." --weight=5
 

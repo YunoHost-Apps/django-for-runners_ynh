@@ -83,10 +83,9 @@ ynh_script_progression --message="Configuring a systemd service..."
 ynh_add_systemd_config --service="$app" --template="for_runners.service"
 
 #=================================================
-# UPGRADE PYINVENTORY
+# UPGRADE VENV
 #=================================================
-
-ynh_script_progression --message="Install django-for-runners using PIP..." --weight=15
+ynh_script_progression --message="Upgrade project via pip..." --weight=80
 
 python3 -m venv "${final_path}/venv"
 chown -R "$app" "$final_path"
@@ -199,7 +198,7 @@ chown -R "$app" "$public_path"
 chown -R "$app" "$final_path"
 
 #=================================================
-# Start django-for-runners via systemd
+# Start pyinventory via systemd
 #=================================================
 ynh_script_progression --message="Starting Django-For-Runners's services..." --weight=5
 
