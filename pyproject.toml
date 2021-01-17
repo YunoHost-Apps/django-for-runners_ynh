@@ -1,13 +1,13 @@
 [tool.poetry]
 name = "django-for-runners_ynh"
-version = "0.12.0rc3~ynh2"
+version = "0.12.0~ynh2"
 description = "Test django-for-runners_ynh via local_test.py"
 authors = ["JensDiemer <git@jensdiemer.de>"]
 license = "GPL"
 
 [tool.poetry.dependencies]
 python = ">=3.7,<4.0.0"
-django-for-runners = "==0.12.0rc3"
+django-for-runners = "==0.12.0"
 django_ynh = "*"
 gunicorn = "*"
 psycopg2-binary = "*"

@@ -99,7 +99,7 @@ drwxr-xr-x 6 django-for-runners django-for-runners    6 Dec  8 08:37 venv
 root@yunohost:~# cd /opt/yunohost/django-for-runners/
 root@yunohost:/opt/yunohost/django-for-runners# source venv/bin/activate
 (venv) root@yunohost:/opt/yunohost/django-for-runners# ./manage.py check
-Django-ForRunners v0.12.0rc3 (Django v2.2.17)
+Django-ForRunners v0.12.0 (Django v2.2.17)
 DJANGO_SETTINGS_MODULE='ynh_django-for-runners_settings'
 PROJECT_PATH:/opt/yunohost/django-for-runners/venv/lib/python3.7/site-packages
 BASE_PATH:/opt/yunohost/django-for-runners
