@@ -7,8 +7,13 @@ license = "GPL"
 
 [tool.poetry.dependencies]
 python = ">=3.7,<4.0.0"
-django-for-runners = "*"
+django-for-runners = "==0.12.0rc2"
 django_ynh = "*"
+gunicorn = "*"
+psycopg2-binary = "*"
+django-redis = "*"
+#django-axes = "*"  # https://github.com/jazzband/django-axes
+
 
 [tool.poetry.dev-dependencies]
 bx_py_utils = "*"
