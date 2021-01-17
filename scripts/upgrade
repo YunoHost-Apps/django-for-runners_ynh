@@ -203,7 +203,7 @@ chown -R "$app" "$final_path"
 #=================================================
 # Start pyinventory via systemd
 #=================================================
-ynh_script_progression --message="Starting Django-For-Runners's services..." --weight=5
+ynh_script_progression --message="Starting project services..." --weight=5
 
 ynh_systemd_action --service_name="$app" --action="start"
 
