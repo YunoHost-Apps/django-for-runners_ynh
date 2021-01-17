@@ -8,8 +8,20 @@ license = "GPL"
 [tool.poetry.dependencies]
 python = ">=3.7,<4.0.0"
 django-for-runners = "*"
+django_ynh = "*"
 
 [tool.poetry.dev-dependencies]
+bx_py_utils = "*"
+tox = "*"
+pytest = "*"
+pytest-cov = "*"
+pytest-django = "*"
+coveralls = "*"
+isort = "*"
+flake8 = "*"
+flynt = "*"
+black = "*"
+pyupgrade = "*"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
