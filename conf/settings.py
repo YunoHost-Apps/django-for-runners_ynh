@@ -11,9 +11,11 @@
 
 from pathlib import Path as __Path
 
+from django_ynh.secret_key import get_or_create_secret as __get_or_create_secret
 from for_runners_project.settings.base import *  # noqa
 
-DEBUG = False
+
+DEBUG = False  # Don't turn DEBUG on in production!
 
 # -----------------------------------------------------------------------------
 
@@ -31,40 +33,41 @@ PATH_URL = PATH_URL.strip('/')
 
 # -----------------------------------------------------------------------------
 
-ROOT_URLCONF = 'ynh_urls'  # /opt/yunohost/django-for-runners/ynh_urls.py
+ROOT_URLCONF = 'urls'  # /opt/yunohost/django-for-runners/ynh_urls.py
 
-# -----------------------------------------------------------------------------
+# Function that will be called to finalize a user profile:
+YNH_SETUP_USER = 'setup_user.setup_project_user'
+
+SECRET_KEY = __get_or_create_secret(FINAL_HOME_PATH / 'secret.txt')  # /opt/yunohost/$app/secret.txt
+
+INSTALLED_APPS.append('django_ynh')
+
+MIDDLEWARE.insert(
+    MIDDLEWARE.index('django.contrib.auth.middleware.AuthenticationMiddleware') + 1,
+    # login a user via HTTP_REMOTE_USER header from SSOwat:
+    'django_ynh.sso_auth.auth_middleware.SSOwatRemoteUserMiddleware',
+)
 
 # Keep ModelBackend around for per-user permissions and superuser
 AUTHENTICATION_BACKENDS = (
     'axes.backends.AxesBackend',  # AxesBackend should be the first backend!
-
+    #
     # Authenticate via SSO and nginx 'HTTP_REMOTE_USER' header:
-    'ynh_authenticate.RemoteUserBackend',
-
+    'django_ynh.sso_auth.auth_backend.SSOwatUserBackend',
+    #
     # Fallback to normal Django model backend:
     'django.contrib.auth.backends.ModelBackend',
 )
+
 LOGIN_REDIRECT_URL = None
 LOGIN_URL = '/yunohost/sso/'
 LOGOUT_REDIRECT_URL = '/yunohost/sso/'
 # /yunohost/sso/?action=logout
 
 # -----------------------------------------------------------------------------
-# https://docs.djangoproject.com/en/2.2/howto/auth-remote-user/
-# Add RemoteUserMiddleware after AuthenticationMiddleware
-
-MIDDLEWARE.insert(
-    MIDDLEWARE.index('django.contrib.auth.middleware.AuthenticationMiddleware') + 1,
-    'ynh_authenticate.RemoteUserMiddleware',
-)
-
-# -----------------------------------------------------------------------------
 
 
-ADMINS = (
-    ('__ADMIN__', '__ADMINMAIL__'),
-)
+ADMINS = (('__ADMIN__', '__ADMINMAIL__'),)
 
 MANAGERS = ADMINS
 
@@ -106,7 +109,7 @@ CACHES = {
     'default': {
         'BACKEND': 'django_redis.cache.RedisCache',
         'LOCATION': 'redis://127.0.0.1:6379/__REDIS_DB__',
-        # If redis is running on same host as Django-For-Runners, you might
+        # If redis is running on same host as Django-ForRunners, you might
         # want to use unix sockets instead:
         # 'LOCATION': 'unix:///var/run/redis/redis.sock?db=1',
         'OPTIONS': {
@@ -129,7 +132,6 @@ else:
 
 STATIC_ROOT = str(FINAL_WWW_PATH / 'static')
 MEDIA_ROOT = str(FINAL_WWW_PATH / 'media')
-
 
 # -----------------------------------------------------------------------------
 
@@ -161,6 +163,7 @@ LOGGING = {
         'django': {'handlers': ['log_file', 'mail_admins'], 'level': 'INFO', 'propagate': False},
         'axes': {'handlers': ['log_file', 'mail_admins'], 'level': 'WARNING', 'propagate': False},
         'django_tools': {'handlers': ['log_file', 'mail_admins'], 'level': 'INFO', 'propagate': False},
+        'django_ynh': {'handlers': ['log_file', 'mail_admins'], 'level': 'INFO', 'propagate': False},
         'for_runners': {'handlers': ['log_file', 'mail_admins'], 'level': 'INFO', 'propagate': False},
     },
 }
