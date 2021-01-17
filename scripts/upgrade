@@ -118,14 +118,11 @@ ynh_backup_if_checksum_is_different --file="$final_path/manage.py"
 cp ../conf/manage.py "$final_path/manage.py"
 chmod +x "$final_path/manage.py"
 
-ynh_backup_if_checksum_is_different --file="$final_path/wsgi.py"
-cp ../conf/wsgi.py "$final_path/wsgi.py"
-
 # save old settings file
-settings="$final_path/ynh_for_runners_settings.py"
+settings="$final_path/settings.py"
 ynh_backup_if_checksum_is_different --file="$settings"
 
-cp "../conf/ynh_for_runners_settings.py" "$settings"
+cp "../conf/settings.py" "$settings"
 
 ynh_replace_string --match_string="__APP__" --replace_string="$app" --target_file="$settings"
 ynh_replace_string --match_string="__DB_PWD__" --replace_string="$db_pwd" --target_file="$settings"
@@ -142,9 +139,16 @@ ynh_replace_string --match_string="__PATH_URL__" --replace_string="$path_url" --
 # Recalculate and store the config file checksum into the app settings
 ynh_store_file_checksum --file="$settings"
 
-touch "$final_path/local_settings.py"
+ynh_backup_if_checksum_is_different --file="$final_path/setup_user.py"
+cp ../conf/setup_user.py "$final_path/setup_user.py"
 
-cp "../conf/ynh_urls.py" "$final_path/ynh_urls.py"
+ynh_backup_if_checksum_is_different --file="$final_path/urls.py"
+cp ../conf/urls.py "$final_path/urls.py"
+
+ynh_backup_if_checksum_is_different --file="$final_path/wsgi.py"
+cp ../conf/wsgi.py "$final_path/wsgi.py"
+
+touch "$final_path/local_settings.py"
 
 #=================================================
 # MIGRATE PYINVENTORY
