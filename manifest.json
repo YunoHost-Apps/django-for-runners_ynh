@@ -1,11 +1,11 @@
 {
-	"name": "Django-For-Runners",
+	"name": "Django-ForRunners",
 	"id": "django-for-runners",
 	"packaging_format": 1,
 	"description": {
 		"en": "Store your GPX tracks of your running (or other sports activity)"
 	},
-	"version": "0.12.0rc2~ynh2",
+	"version": "0.12.0~ynh1",
 	"url": "https://github.com/jedie/django-for-runners",
 	"license": "GPL-3.0",
 	"maintainer": {
@@ -26,8 +26,8 @@
 				"name": "domain",
 				"type": "domain",
 				"ask": {
-					"en": "Choose a domain for Django-For-Runners",
-					"fr": "Choisissez un domaine pour Django-For-Runners"
+					"en": "Choose a domain for Django-ForRunners",
+					"fr": "Choisissez un domaine pour Django-ForRunners"
 				},
 				"example": "domain.org"
 			},
@@ -35,8 +35,8 @@
 				"name": "path",
 				"type": "path",
 				"ask": {
-				    "en": "Choose a path for Django-For-Runners",
-				    "fr": "Choisissez un chemin pour Django-For-Runners"
+				    "en": "Choose a path for Django-ForRunners",
+				    "fr": "Choisissez un chemin pour Django-ForRunners"
 				},
 				"example": "/django-for-runners",
 				"default": "/django-for-runners"
@@ -45,8 +45,8 @@
 				"name": "admin",
 				"type": "user",
 				"ask": {
-				    "en": "Choose an admin user for Django-For-Runners",
-				    "fr": "Choisissez l'administrateur pour Django-For-Runners"
+				    "en": "Choose an admin user for Django-ForRunners",
+				    "fr": "Choisissez l'administrateur pour Django-ForRunners"
 				},
 				"example": "johndoe"
 			},
@@ -54,8 +54,8 @@
 				"name": "is_public",
 				"type": "boolean",
 				"ask": {
-					"en": "Should Django-For-Runners be public accessible?",
-					"fr": "Django-For-Runners doit-il être accessible au public ?"
+					"en": "Should Django-ForRunners be public accessible?",
+					"fr": "Django-ForRunners doit-il être accessible au public ?"
 				},
 				"help": {
 					"en": "Any YunoHost user and anonymous people from the web will be able to access the application",
