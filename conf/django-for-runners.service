@@ -1,5 +1,5 @@
 [Unit]
-Description=Django-ForRunners application server
+Description=django-for-runners application server
 After=redis.service postgresql.service
 
 [Service]
