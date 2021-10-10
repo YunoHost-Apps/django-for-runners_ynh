@@ -1,14 +1,15 @@
-import for_runners
 from axes.models import AccessLog
-from bx_py_utils.test_utils.html_assertion import HtmlAssertionMixin
+from bx_django_utils.test_utils.html_assertion import HtmlAssertionMixin
 from django.conf import settings
 from django.contrib.auth.models import User
 from django.test import override_settings
 from django.test.testcases import TestCase
 from django.urls import NoReverseMatch
 from django.urls.base import reverse
-from django_ynh.test_utils import generate_basic_auth
-from django_ynh.views import request_media_debug_view
+from django_yunohost_integration.test_utils import generate_basic_auth
+from django_yunohost_integration.views import request_media_debug_view
+
+import for_runners
 
 
 @override_settings(DEBUG=False)
@@ -24,7 +25,7 @@ class DjangoYnhTestCase(HtmlAssertionMixin, TestCase):
 
         assert str(settings.FINAL_HOME_PATH).endswith('/local_test/opt_yunohost')
         assert str(settings.FINAL_WWW_PATH).endswith('/local_test/var_www')
-        assert str(settings.LOG_FILE).endswith('/local_test/var_log_django-for-runners_ynh.log')
+        assert str(settings.LOG_FILE).endswith('/local_test/var_log_django-for-runners.log')
 
         assert settings.ROOT_URLCONF == 'urls'
 
@@ -43,9 +44,24 @@ class DjangoYnhTestCase(HtmlAssertionMixin, TestCase):
         # )
 
     def test_auth(self):
-        response = self.client.get('/app_path/')
-        self.assertRedirects(response, expected_url='/app_path/login/?next=/app_path/')
+        # SecurityMiddleware should redirects all non-HTTPS requests to HTTPS:
+        assert settings.SECURE_SSL_REDIRECT is True
+        response = self.client.get('/app_path/', secure=False)
+        self.assertRedirects(
+            response,
+            status_code=301,  # permanent redirect
+            expected_url='https://testserver/app_path/',
+            fetch_redirect_response=False
+        )
 
+        response = self.client.get('/app_path/', secure=True)
+        self.assertRedirects(
+            response,
+            expected_url='/app_path/login/?next=/app_path/',
+            fetch_redirect_response=False
+        )
+
+    @override_settings(SECURE_SSL_REDIRECT=False)
     def test_create_unknown_user(self):
         assert User.objects.count() == 0
 
@@ -65,6 +81,7 @@ class DjangoYnhTestCase(HtmlAssertionMixin, TestCase):
         assert user.is_staff is True  # Set by: conf.django_ynh_demo_urls.setup_user_handler
         assert user.is_superuser is False
 
+        assert response.status_code == 200
         self.assert_html_parts(
             response,
             parts=(
@@ -73,6 +90,7 @@ class DjangoYnhTestCase(HtmlAssertionMixin, TestCase):
             ),
         )
 
+    @override_settings(SECURE_SSL_REDIRECT=False)
     def test_wrong_auth_user(self):
         assert User.objects.count() == 0
         assert AccessLog.objects.count() == 0
@@ -97,6 +115,7 @@ class DjangoYnhTestCase(HtmlAssertionMixin, TestCase):
 
         assert response.status_code == 403  # Forbidden
 
+    @override_settings(SECURE_SSL_REDIRECT=False)
     def test_wrong_cookie(self):
         assert User.objects.count() == 0
         assert AccessLog.objects.count() == 0
@@ -121,6 +140,7 @@ class DjangoYnhTestCase(HtmlAssertionMixin, TestCase):
 
         assert response.status_code == 403  # Forbidden
 
+    @override_settings(SECURE_SSL_REDIRECT=False)
     def test_wrong_authorization_user(self):
         assert User.objects.count() == 0
 

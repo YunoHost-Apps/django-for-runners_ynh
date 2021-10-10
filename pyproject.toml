@@ -1,22 +1,23 @@
 [tool.poetry]
-name = "django-for-runners_ynh"
-version = "0.12.0~ynh2"
-description = "Test django-for-runners_ynh via local_test.py"
+name = "for_runners_ynh"
+version = "0.12.0~ynh1"
+description = "Test for_runners_ynh via local_test.py"
 authors = ["JensDiemer <git@jensdiemer.de>"]
 license = "GPL"
 
 [tool.poetry.dependencies]
 python = ">=3.7,<4.0.0"
-django-for-runners = "==0.12.0"
-django_ynh = "*"
-gunicorn = "*"
-psycopg2-binary = "*"
-django-redis = "*"
-#django-axes = "*"  # https://github.com/jazzband/django-axes
+django-for-runners = "*"
+# Note: "ynh" extras will install gunicorn, psycopg2, django-redis and django-axes
+django_yunohost_integration = {version = ">=v0.2.0", extras = ["ynh"]}
 
+# TODO: Update psycopg2 after django-for-runners updates Django >2.2 update
+# See: https://github.com/psycopg/psycopg2/issues/1293
+psycopg2 = "<2.9" # https://www.psycopg.org/docs/install.html#build-prerequisites
 
 [tool.poetry.dev-dependencies]
 bx_py_utils = "*"
+bx_django_utils = "*"
 tox = "*"
 pytest = "*"
 pytest-cov = "*"
@@ -41,7 +42,7 @@ case_sensitive=false
 skip_glob=["*/htmlcov/*","*/migrations/*"]
 multi_line_output=3
 include_trailing_comma=true
-known_first_party=["inventory"]
+known_first_party=["for_runners"]
 no_lines_before="LOCALFOLDER"
 default_section="THIRDPARTY"
 sections=["FUTURE","STDLIB","THIRDPARTY","FIRSTPARTY","LOCALFOLDER"]
