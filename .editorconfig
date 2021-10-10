@@ -18,3 +18,4 @@ insert_final_newline = false
 
 [*.yml]
 indent_style = tab
+indent_size = 4
