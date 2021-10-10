@@ -3,7 +3,9 @@ name: YunoHost apps package linter
 on:
   schedule:
     - cron: '0 8 * * *'
-  push:
+    push:
+    branches:
+      - main
 
 jobs:
   test:
