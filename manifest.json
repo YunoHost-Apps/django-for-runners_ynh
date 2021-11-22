@@ -5,7 +5,7 @@
 	"description": {
 		"en": "Store your GPX tracks of your running (or other sports activity)"
 	},
-	"version": "0.12.0~ynh1",
+	"version": "0.12.1~ynh1",
 	"url": "https://github.com/jedie/django-for-runners",
 	"license": "GPL-3.0",
 	"maintainer": {
