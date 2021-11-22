@@ -14,4 +14,4 @@ python3 -m venv "${final_path}/venv"
 source "${final_path}/venv/bin/activate"
 
 $final_path/venv/bin/pip install --upgrade wheel pip
-$final_path/venv/bin/pip install --no-deps -r "./conf/requirements.txt"
+$final_path/venv/bin/pip install --no-deps --prefer-binary -r "./conf/requirements.txt"
