@@ -80,24 +80,29 @@ ynh_system_user_create --username="$app" --home_dir="$final_path" --use_shell
 #=================================================
 ynh_script_progression --message="Configuring a systemd service..."
 
-ynh_add_systemd_config --service="$app" --template="for_runners.service"
+ynh_add_systemd_config --service="$app" --template="django-for-runners.service"
 
 #=================================================
 # UPGRADE VENV
 #=================================================
 ynh_script_progression --message="Upgrade project via pip..." --weight=80
 
-python3 -m venv "${final_path}/venv"
+python3 -m venv --upgrade "${final_path}/venv"
 cp ../conf/requirements.txt "$final_path/requirements.txt"
-chown -R "$app" "$final_path"
+chown -R "$app:" "$final_path"
 
 #run source in a 'sub shell'
 (
 	set +o nounset
 	source "${final_path}/venv/bin/activate"
 	set -o nounset
-	ynh_exec_as $app $final_path/venv/bin/pip install --upgrade pip
-	ynh_exec_as $app $final_path/venv/bin/pip install -r "$final_path/requirements.txt"
+	ynh_exec_as $app $final_path/venv/bin/pip install --upgrade wheel pip
+
+	# for installing packages like "matplotlib"
+	# See: https://github.com/YunoHost-Apps/django-for-runners_ynh/issues/15
+	ynh_exec_as $app $final_path/venv/bin/pip install --upgrade --prefer-binary Cython
+
+	ynh_exec_as $app $final_path/venv/bin/pip install --no-deps --prefer-binary -r "$final_path/requirements.txt"
 )
 
 #=================================================
@@ -196,12 +201,12 @@ yunohost service add $app --description="Web based management to catalog things"
 #=================================================
 
 # Set permissions to app files
-chown -R "$app" "$log_path"
-chown -R "$app" "$public_path"
-chown -R "$app" "$final_path"
+chown -R "$app:" "$log_path"
+chown -R "$app:" "$public_path"
+chown -R "$app:" "$final_path"
 
 #=================================================
-# Start pyinventory via systemd
+# Start for_runners via systemd
 #=================================================
 ynh_script_progression --message="Starting project services..." --weight=5
 
