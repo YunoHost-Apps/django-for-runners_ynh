@@ -113,6 +113,11 @@ chown -R "$app:" "$final_path"
 	source "${final_path}/venv/bin/activate"
 	set -o nounset
 	ynh_exec_as $app $final_path/venv/bin/pip install --upgrade wheel pip
+
+	# for installing packages like "matplotlib"
+	# See: https://github.com/YunoHost-Apps/django-for-runners_ynh/issues/15
+	ynh_exec_as $app $final_path/venv/bin/pip install --upgrade --prefer-binary Cython
+
 	ynh_exec_as $app $final_path/venv/bin/pip install --no-deps --prefer-binary -r "$final_path/requirements.txt"
 )
 
