@@ -39,9 +39,9 @@ class DjangoYnhTestCase(HtmlAssertionMixin, TestCase):
         # TODO: https://github.com/jedie/django-for-runners/issues/25
         # Serve user uploads via django_tools.serve_media_app:
         # assert settings.MEDIA_URL == '/app_path/media/'
-        # assert reverse('serve_media_app:serve-media', kwargs={'user_token': 'token', 'path': 'foo/bar/'}) == (
-        #     '/app_path/media/token/foo/bar/'
-        # )
+        # assert reverse(
+        #     'serve_media_app:serve-media', kwargs={'user_token': 'token', 'path': 'foo/bar/'}
+        # ) == ('/app_path/media/token/foo/bar/')
 
     def test_auth(self):
         # SecurityMiddleware should redirects all non-HTTPS requests to HTTPS:
@@ -51,14 +51,12 @@ class DjangoYnhTestCase(HtmlAssertionMixin, TestCase):
             response,
             status_code=301,  # permanent redirect
             expected_url='https://testserver/app_path/',
-            fetch_redirect_response=False
+            fetch_redirect_response=False,
         )
 
         response = self.client.get('/app_path/', secure=True)
         self.assertRedirects(
-            response,
-            expected_url='/app_path/login/?next=/app_path/',
-            fetch_redirect_response=False
+            response, expected_url='/app_path/login/?next=/app_path/', fetch_redirect_response=False
         )
 
     @override_settings(SECURE_SSL_REDIRECT=False)
@@ -150,7 +148,9 @@ class DjangoYnhTestCase(HtmlAssertionMixin, TestCase):
             path='/app_path/',
             HTTP_REMOTE_USER='test',
             HTTP_AUTH_USER='test',
-            HTTP_AUTHORIZATION=generate_basic_auth(username='foobar', password='test123'),  # <<< wrong user name
+            HTTP_AUTHORIZATION=generate_basic_auth(
+                username='foobar', password='test123'
+            ),  # <<< wrong user name
         )
 
         assert User.objects.count() == 1
