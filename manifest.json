@@ -7,6 +7,11 @@
 	},
 	"version": "0.12.1~ynh1",
 	"url": "https://github.com/jedie/django-for-runners",
+    "upstream": {
+        "license": "GPL-3.0",
+        "website": "https://github.com/jedie/django-for-runners",
+        "code": "https://github.com/jedie/django-for-runners"
+    },
 	"license": "GPL-3.0",
 	"maintainer": {
 		"name": "Jens Diemer",
