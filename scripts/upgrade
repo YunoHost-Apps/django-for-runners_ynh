@@ -22,7 +22,11 @@ domain=$(ynh_app_setting_get --app="$app" --key=domain)
 path_url=$(ynh_app_setting_get --app="$app" --key=path)
 
 port=$(ynh_app_setting_get --app="$app" --key=port)
+
 db_pwd=$(ynh_app_setting_get --app="$app" --key=psqlpwd)
+db_name=$(ynh_sanitize_dbid --db_name="$app")
+db_user=$db_name
+
 admin_mail=$(ynh_user_get_info "$admin" mail)
 redis_db=$(ynh_app_setting_get --app="$app" --key=redis_db)
 
