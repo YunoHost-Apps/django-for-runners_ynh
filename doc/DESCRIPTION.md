@@ -1,4 +1,4 @@
-![Logo](https://raw.githubusercontent.com/jedie/django-for-runners/master/src/django-for-runners/static/django-for-runners128.png)
+![Logo](https://raw.githubusercontent.com/jedie/django-for-runners/main/src/for_runners/static/Django-ForRunners128.png)
 
 [django-for-runners](https://github.com/jedie/django-for-runners) is a libre web-based management for your GPX tracks of your running (or other sports activity). Used [Python](https://www.python.org/)/[Django](https://www.djangoproject.com/).
 
