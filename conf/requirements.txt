@@ -47,9 +47,9 @@ django-dbbackup==3.3.0; python_version >= "3.7" and python_full_version < "4.0.0
 django-debug-toolbar==3.2.4; python_version >= "3.7" and python_full_version < "4.0.0" \
     --hash=sha256:644bbd5c428d3283aa9115722471769cac1bec189edf3a0c855fd8ff870375a9 \
     --hash=sha256:6b633b6cfee24f232d73569870f19aa86c819d750e7f3e833f2344a9eb4b4409
-django-for-runners==0.13.0rc1; python_version >= "3.7" and python_full_version < "4.0.0" \
-    --hash=sha256:8576244ed3172291e84dcfdc96e3d2d12beb34c0bdb9816d68bc4911b20765db \
-    --hash=sha256:5c0c43b366d6f58049d9ae4de86bd1aff19266af967caaa0e1bed5fd481372ac
+django-for-runners==0.13.0; python_version >= "3.7" and python_full_version < "4.0.0" \
+    --hash=sha256:eb428a6b6d3468007d614c2a3c72a6c88f681f24db1ba9dd0b39890afdf70a05 \
+    --hash=sha256:adca92e03fa631d33f3acaaded77b08198240fb6faba8c1fff75cf923c6fa5b6
 django-import-export==2.7.1; python_version >= "3.7" and python_full_version < "4.0.0" \
     --hash=sha256:4bc65943a5ce66aeaf2b5d0d6f75b1863b63b10323bf235e46500bef5d6dd85b \
     --hash=sha256:254ca359782efca932c398edabc15dd51d31da241e85cc03af5b720173e0b2fe

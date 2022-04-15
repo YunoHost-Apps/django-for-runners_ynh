@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "for_runners_ynh"
-version = "0.13.0rc1~ynh1"
+version = "0.13.0~ynh1"
 description = "Test for_runners_ynh via local_test.py"
 authors = ["JensDiemer <git@jensdiemer.de>"]
 license = "GPL"
@@ -8,7 +8,7 @@ license = "GPL"
 [tool.poetry.dependencies]
 # Keep Python 3.7 until Yunohost contains a newer Python Version ;)
 python = ">=3.7,<4.0.0"
-django-for-runners = ">=0.13.0rc1"
+django-for-runners = ">=0.13.0"
 # Note: "ynh" extras will install gunicorn, psycopg2, django-redis and django-axes
 django_yunohost_integration = {version = ">=v0.2.0", extras = ["ynh"]}
 

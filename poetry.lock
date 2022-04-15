@@ -309,7 +309,7 @@ sqlparse = ">=0.2.0"
 
 [[package]]
 name = "django-for-runners"
-version = "0.13.0rc1"
+version = "0.13.0"
 description = "Store your GPX tracks of your running (or other sports activity) in django."
 category = "main"
 optional = false
@@ -1199,7 +1199,7 @@ testing = ["pytest (>=6)", "pytest-checkdocs (>=2.4)", "pytest-flake8", "pytest-
 [metadata]
 lock-version = "1.1"
 python-versions = ">=3.7,<4.0.0"
-content-hash = "81ce8385bf5a459f9ee988a79822582f073b5c1d325585a4cb9e7c983dd2bbe3"
+content-hash = "ba9ba95fd1dafbb50c56115d0158773540da4403b85e1e478b35110b86ecabe8"
 
 [metadata.files]
 astor = [
@@ -1365,8 +1365,8 @@ django-debug-toolbar = [
     {file = "django_debug_toolbar-3.2.4-py3-none-any.whl", hash = "sha256:6b633b6cfee24f232d73569870f19aa86c819d750e7f3e833f2344a9eb4b4409"},
 ]
 django-for-runners = [
-    {file = "django-for-runners-0.13.0rc1.tar.gz", hash = "sha256:8576244ed3172291e84dcfdc96e3d2d12beb34c0bdb9816d68bc4911b20765db"},
-    {file = "django_for_runners-0.13.0rc1-py3-none-any.whl", hash = "sha256:5c0c43b366d6f58049d9ae4de86bd1aff19266af967caaa0e1bed5fd481372ac"},
+    {file = "django-for-runners-0.13.0.tar.gz", hash = "sha256:eb428a6b6d3468007d614c2a3c72a6c88f681f24db1ba9dd0b39890afdf70a05"},
+    {file = "django_for_runners-0.13.0-py3-none-any.whl", hash = "sha256:adca92e03fa631d33f3acaaded77b08198240fb6faba8c1fff75cf923c6fa5b6"},
 ]
 django-import-export = [
     {file = "django-import-export-2.7.1.tar.gz", hash = "sha256:4bc65943a5ce66aeaf2b5d0d6f75b1863b63b10323bf235e46500bef5d6dd85b"},
