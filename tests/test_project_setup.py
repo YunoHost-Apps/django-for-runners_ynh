@@ -4,9 +4,10 @@ import shutil
 import subprocess
 from pathlib import Path
 
-import for_runners
 from bx_django_utils.filename import clean_filename
 from bx_py_utils.path import assert_is_dir, assert_is_file
+
+import for_runners
 
 
 PACKAGE_ROOT = Path(__file__).parent.parent
