@@ -3,8 +3,7 @@ from django.conf.urls import static
 from django.contrib import admin
 from django.urls import path
 
-
-# from django_yunohost_integration.views import request_media_debug_view
+from for_runners.views.media_files import UserMediaView
 
 
 if settings.PATH_URL:
@@ -12,10 +11,9 @@ if settings.PATH_URL:
     # Prefix all urls with "PATH_URL":
     urlpatterns = [
         path(f'{settings.PATH_URL}/', admin.site.urls),
-        # path(f'{settings.PATH_URL}/debug/', request_media_debug_view),
+        path(f'{settings.PATH_URL}/media/<slug:user_name>/<path:path>', UserMediaView.as_view()),
 
         # TODO: https://github.com/jedie/django-for-runners/issues/25
-        # MEDIA_URL contains the "PATH_URL" already:
         # path(settings.MEDIA_URL.lstrip('/'), include('django_tools.serve_media_app.urls')),
     ]
     if settings.SERVE_FILES:
