@@ -5,8 +5,13 @@
 	"description": {
 		"en": "Store your GPX tracks of your running (or other sports activity)"
 	},
-	"version": "0.12.1~ynh1",
+	"version": "0.13.0~ynh1",
 	"url": "https://github.com/jedie/django-for-runners",
+    "upstream": {
+        "license": "GPL-3.0",
+        "website": "https://github.com/jedie/django-for-runners",
+        "code": "https://github.com/jedie/django-for-runners"
+    },
 	"license": "GPL-3.0",
 	"maintainer": {
 		"name": "Jens Diemer",
@@ -24,32 +29,18 @@
 		"install" : [
 			{
 				"name": "domain",
-				"type": "domain",
-				"ask": {
-					"en": "Choose a domain for django-for-runners",
-					"fr": "Choisissez un domaine pour django-for-runners"
-				},
-				"example": "domain.org"
+				"type": "domain"
 			},
 			{
 				"name": "path",
 				"type": "path",
-				"ask": {
-				    "en": "Choose a path for django-for-runners",
-				    "fr": "Choisissez un chemin pour django-for-runners"
-				},
 				"example": "/django-for-runners",
 				"default": "/django-for-runners"
 			},
 			{
 				"name": "admin",
-				"type": "user",
-				"ask": {
-				    "en": "Choose an admin user for django-for-runners",
-				    "fr": "Choisissez l'administrateur pour django-for-runners"
-				},
-				"example": "johndoe"
-			}
+				"type": "user"
+            }
 		]
 	}
 }
