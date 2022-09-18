@@ -49,7 +49,7 @@ ynh_abort_if_errors
 #=================================================
 # STOP SYSTEMD SERVICE
 #=================================================
-ynh_script_progression --message="Stopping systemd services..." --weight=5
+ynh_script_progression --message="Stopping systemd service '$app'..." --weight=5
 
 ynh_systemd_action --service_name="$app" --action="stop"
 
@@ -220,9 +220,9 @@ chmod o-rwx "$public_path"
 chmod o-rwx "$final_path"
 
 #=================================================
-# Start for_runners via systemd
+# Start the app server via systemd
 #=================================================
-ynh_script_progression --message="Starting project services..." --weight=5
+ynh_script_progression --message="Starting systemd service '$app'..." --weight=5
 
 ynh_systemd_action --service_name="$app" --action="start"
 

@@ -227,10 +227,11 @@ chmod o-rwx "$final_path"
 #=================================================
 # SETUP SYSTEMD
 #=================================================
-ynh_script_progression --message="Configuring a systemd service..."
+ynh_script_progression --message="Configuring systemd service '$app'..." --weight=5
 
-# https://github.com/YunoHost/yunohost/blob/dev/data/helpers.d/systemd
-ynh_add_systemd_config --service="$app" --template="django-for-runners.service"
+# https://yunohost.org/en/contribute/packaging_apps/helpers
+# https://github.com/YunoHost/yunohost/blob/dev/helpers/systemd
+ynh_add_systemd_config --service="$app" --template="systemd.service"
 
 #=================================================
 # Start for_runners via systemd
