@@ -16,8 +16,6 @@ if settings.PATH_URL:
         # TODO: https://github.com/jedie/django-for-runners/issues/25
         # path(settings.MEDIA_URL.lstrip('/'), include('django_tools.serve_media_app.urls')),
     ]
-    if settings.SERVE_FILES:
-        urlpatterns += static.static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 else:
     # Installed to domain root, without a path prefix
     # Just use the default project urls.py
