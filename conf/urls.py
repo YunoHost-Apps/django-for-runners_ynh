@@ -1,6 +1,7 @@
 from django.conf import settings
 from django.contrib import admin
 from django.urls import path
+
 from for_runners.views.media_files import UserMediaView
 
 
@@ -10,7 +11,6 @@ if settings.PATH_URL:
     urlpatterns = [
         path(f'{settings.PATH_URL}/', admin.site.urls),
         path(f'{settings.PATH_URL}/media/<slug:user_name>/<path:path>', UserMediaView.as_view()),
-
         # TODO: https://github.com/jedie/django-for-runners/issues/25
         # path(settings.MEDIA_URL.lstrip('/'), include('django_tools.serve_media_app.urls')),
     ]
