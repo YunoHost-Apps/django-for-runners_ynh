@@ -4,10 +4,10 @@ import shutil
 import subprocess
 from pathlib import Path
 
+import for_runners
+import tomli
 from bx_django_utils.filename import clean_filename
 from bx_py_utils.path import assert_is_dir, assert_is_file
-
-import for_runners
 
 
 PACKAGE_ROOT = Path(__file__).parent.parent
@@ -22,13 +22,20 @@ def assert_file_contains_string(file_path, string):
 
 
 def test_version():
-    version = for_runners.__version__
+    pyproject_toml_path = Path(PACKAGE_ROOT, 'pyproject.toml')
+    pyproject_toml = tomli.loads(pyproject_toml_path.read_text(encoding='UTF-8'))
+    pyproject_version = pyproject_toml['tool']['poetry']['version']
+    assert '~ynh' in pyproject_version
+    assert pyproject_version[0].isdigit()
+    assert pyproject_version.startswith(for_runners.__version__)
 
     assert_file_contains_string(
-        file_path=Path(PACKAGE_ROOT, 'pyproject.toml'), string=f'version = "{version}~ynh'
+        file_path=Path(PACKAGE_ROOT, 'manifest.json'),
+        string=f'"version": "{pyproject_version}"',
     )
     assert_file_contains_string(
-        file_path=Path(PACKAGE_ROOT, 'manifest.json'), string=f'"version": "{version}~ynh'
+        file_path=pyproject_toml_path,
+        string=f'django-for-runners = ">={for_runners.__version__}"',
     )
 
 
@@ -52,7 +59,7 @@ def test_poetry_check():
 
 
 def test_requirements_txt():
-    requirements_txt = Path('conf', 'requirements.txt')
+    requirements_txt = PACKAGE_ROOT / 'conf' / 'requirements.txt'
     assert_is_file(requirements_txt)
 
     output = poetry_check_output('export', '-f', 'requirements.txt')
@@ -81,6 +88,8 @@ def test_screenshot_filenames():
     renamed = []
     for file_path in screenshot_path.iterdir():
         file_name = file_path.name
+        if file_name.startswith('.'):
+            continue
         cleaned_name = clean_filename(file_name)
         if cleaned_name != file_name:
             new_path = file_path.with_name(cleaned_name)

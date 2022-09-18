@@ -1,8 +1,6 @@
 from django.conf import settings
-from django.conf.urls import static
 from django.contrib import admin
 from django.urls import path
-
 from for_runners.views.media_files import UserMediaView
 
 

@@ -19,11 +19,11 @@
 	},
 	"previous_maintainers": [],
 	"requirements": {
-		"yunohost": ">= 4.0"
+		"yunohost": ">= 4.4"
 	},
 	"multi_instance": true,
 	"services": [
-		"nginx"
+		"nginx", "postgresql", "redis"
 	],
 	"arguments": {
 		"install" : [
@@ -40,7 +40,16 @@
 			{
 				"name": "admin",
 				"type": "user"
-            }
+			},
+			{
+				"name": "is_public",
+				"type": "boolean",
+				"help": {
+					"en": "Any YunoHost user and anonymous people from the web will be able to access the application",
+					"fr": "Tout utilisateur YunoHost et les personnes anonymes pourront accéder à l'application"
+				},
+				"default": false
+			}
 		]
 	}
 }

@@ -54,8 +54,8 @@ line_length = 100
 # https://pycqa.github.io/isort/docs/configuration/config_files/#pyprojecttoml-preferred-format
 atomic=true
 profile='black'
+skip_glob=["*/htmlcov/*","*/migrations/*","*/local_test/*"]
 line_length=100
-skip_glob=["*/htmlcov/*","*/migrations/*"]
 known_first_party=["for_runners"]
 lines_after_imports=2
 
@@ -63,7 +63,7 @@ lines_after_imports=2
 [tool.pytest.ini_options]
 # https://docs.pytest.org/en/latest/customize.html#pyproject-toml
 minversion = "6.0"
-norecursedirs = ".* .git __pycache__ conf coverage* dist htmlcov"
+norecursedirs = ".* .git __pycache__ conf local_test coverage* dist htmlcov"
 # sometimes helpfull "addopts" arguments:
 #    -vv
 #    --verbose
