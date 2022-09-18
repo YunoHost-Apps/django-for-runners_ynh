@@ -40,6 +40,10 @@ jobs:
       run: |
         make pytest
 
+    - name: 'Run Safety check'
+      run: |
+        make safety
+
     - name: 'Upload coverage report'
       uses: codecov/codecov-action@v2
       with:
