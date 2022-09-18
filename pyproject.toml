@@ -17,21 +17,17 @@ django_yunohost_integration = {version = ">=v0.2.0", extras = ["ynh"]}
 psycopg2 = "<2.9" # https://www.psycopg.org/docs/install.html#build-prerequisites
 
 [tool.poetry.dev-dependencies]
-bx_py_utils = "*"
-bx_django_utils = "*"
+bx_py_utils = "*"  # https://github.com/boxine/bx_py_utils
+bx_django_utils = "*"  # https://github.com/boxine/bx_django_utils
 tox = "*"
 pytest = "*"
 pytest-cov = "*"
 pytest-django = "*"
 pytest-darker = "*"  # https://github.com/akaihola/pytest-darker
-pytest-flake8 = "*"
-pytest-isort = "*"
 coveralls = "*"
 isort = "*"
 flake8 = "*"
-flynt = "*"
-darker = "*"  # https://github.com/akaihola/darker
-pyupgrade = "*"
+EditorConfig = "*"  # https://github.com/editorconfig/editorconfig-core-py
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
@@ -89,21 +85,22 @@ addopts = """
     --no-cov-on-fail
     --showlocals
     --darker
-    --flake8
-    --isort
     --doctest-modules
     --failed-first
-    --last-failed-no-failures all
     --new-first
 """
-# TODO: --mypy
+
+
+[tool.coverage.run]
+omit = [".*"]
+
 
 [tool.tox]
 # https://tox.readthedocs.io/en/latest/example/basic.html#pyproject-toml-tox-legacy-ini
 legacy_tox_ini = """
 [tox]
 isolated_build = True
-envlist = px310,py39,py38,py37
+envlist = py{37,38,39,310}
 skip_missing_interpreters = True
 
 [testenv]

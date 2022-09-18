@@ -1,5 +1,5 @@
 SHELL := /bin/bash
-MAX_LINE_LENGTH := 119
+MAX_LINE_LENGTH := 100
 
 all: help
 
@@ -27,6 +27,16 @@ update: install-poetry  ## update the sources and installation and generate "con
 	poetry run pip install -U pip
 	poetry update
 	poetry export -f requirements.txt --output conf/requirements.txt
+
+lint: ## Run code formatters and linter
+	poetry run flynt --fail-on-change --line-length=${MAX_LINE_LENGTH} .
+	poetry run isort --check-only .
+	poetry run flake8 .
+
+fix-code-style: ## Fix code formatting
+	poetry run flynt --line-length=${MAX_LINE_LENGTH} .
+	poetry run black --verbose --safe --line-length=${MAX_LINE_LENGTH} --skip-string-normalization .
+	poetry run isort .
 
 tox-listenvs: check-poetry ## List all tox test environments
 	poetry run tox --listenvs
