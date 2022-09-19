@@ -3,6 +3,10 @@
 !.editorconfig
 !.flake8
 !.gitignore
+!.safety-policy.yml
+
+!/doc/screenshots/.gitkeep
+
 __pycache__
 secret.txt
 /local_test/
