@@ -1,0 +1,12 @@
+# Safety Security and License Configuration file
+security:
+    ignore-vulnerabilities: # Here you can list multiple specific vulnerabilities you want to ignore (optionally for a time period)
+        44715:
+            reason: Numpy >=1.22.0 needs Python 3.8
+            expires: '2022-12-31' # datetime string - date this ignore will expire, best practice to use this variable
+        44716:
+            reason: Numpy >=1.22.0 needs Python 3.8
+            expires: '2022-12-31' # datetime string - date this ignore will expire, best practice to use this variable
+        44717:
+            reason: Numpy >=1.22.0 needs Python 3.8
+            expires: '2022-12-31' # datetime string - date this ignore will expire, best practice to use this variable
