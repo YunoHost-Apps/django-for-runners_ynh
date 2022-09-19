@@ -4,8 +4,10 @@ import shutil
 import subprocess
 from pathlib import Path
 
+import tomli
 from bx_django_utils.filename import clean_filename
 from bx_py_utils.path import assert_is_dir, assert_is_file
+from django_tools.unittest_utils.project_setup import check_editor_config
 
 import for_runners
 
@@ -22,13 +24,20 @@ def assert_file_contains_string(file_path, string):
 
 
 def test_version():
-    version = for_runners.__version__
+    upstream_version = for_runners.__version__
+
+    pyproject_toml_path = Path(PACKAGE_ROOT, 'pyproject.toml')
+    pyproject_toml = tomli.loads(pyproject_toml_path.read_text(encoding='UTF-8'))
+    pyproject_version = pyproject_toml['tool']['poetry']['version']
+    assert pyproject_version.startswith(f'{upstream_version}+ynh')
+
+    # pyproject.toml needs a PEP 440 conform version and used "+ynh"
+    # the YunoHost syntax is: "~ynh", just "convert this:
+    manifest_version = pyproject_version.replace('+', '~')
 
     assert_file_contains_string(
-        file_path=Path(PACKAGE_ROOT, 'pyproject.toml'), string=f'version = "{version}~ynh'
-    )
-    assert_file_contains_string(
-        file_path=Path(PACKAGE_ROOT, 'manifest.json'), string=f'"version": "{version}~ynh'
+        file_path=Path(PACKAGE_ROOT, 'manifest.json'),
+        string=f'"version": "{manifest_version}"',
     )
 
 
@@ -52,7 +61,7 @@ def test_poetry_check():
 
 
 def test_requirements_txt():
-    requirements_txt = Path('conf', 'requirements.txt')
+    requirements_txt = PACKAGE_ROOT / 'conf' / 'requirements.txt'
     assert_is_file(requirements_txt)
 
     output = poetry_check_output('export', '-f', 'requirements.txt')
@@ -81,9 +90,15 @@ def test_screenshot_filenames():
     renamed = []
     for file_path in screenshot_path.iterdir():
         file_name = file_path.name
+        if file_name.startswith('.'):
+            continue
         cleaned_name = clean_filename(file_name)
         if cleaned_name != file_name:
             new_path = file_path.with_name(cleaned_name)
             file_path.rename(new_path)
             renamed.append(f'{file_name!r} renamed to {cleaned_name!r}')
     assert not renamed, f'Bad screenshots file names found: {", ".join(renamed)}'
+
+
+def test_check_editor_config():
+    check_editor_config(package_root=PACKAGE_ROOT)
