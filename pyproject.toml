@@ -4,6 +4,10 @@ version = "0.15.0+ynh2"
 description = "Test for_runners_ynh via local_test.py"
 authors = ["JensDiemer <git@jensdiemer.de>"]
 license = "GPL"
+homepage = "https://github.com/YunoHost-Apps/django-for-runners_ynh"
+
+[tool.poetry.urls]
+"Bug Tracker" = "https://github.com/YunoHost-Apps/django-for-runners_ynh/issues"
 
 [tool.poetry.dependencies]
 python = ">=3.7,<4.0.0"  # TODO: Update to >=3.8 after YunoHost updates to Bullseye
@@ -24,6 +28,9 @@ isort = "*"
 flake8 = "*"
 EditorConfig = "*"  # https://github.com/editorconfig/editorconfig-core-py
 safety = "*"  # https://github.com/pyupio/safety
+requests = "*"  # https://github.com/psf/requests
+packaging = "*"  # https://github.com/pypa/packaging
+
 
 [build-system]
 requires = ["poetry-core"]
