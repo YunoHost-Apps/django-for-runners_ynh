@@ -15,8 +15,12 @@ from django_yunohost_integration.base_settings import *  # noqa:F401,F403
 from django_yunohost_integration.secret_key import get_or_create_secret as __get_or_create_secret
 
 
-from for_runners_project.settings.base import *  # noqa isort:skip
+# https://github.com/jedie/django-for-runners
+from for_runners_project.settings.prod import *  # noqa:F401,F403 isort:skip
+
+
 from django_yunohost_integration.base_settings import LOGGING  # noqa:F401 isort:skip
+
 
 FINALPATH = __Path('__FINALPATH__')  # /opt/yunohost/$app
 assert FINALPATH.is_dir(), f'Directory not exists: {FINALPATH}'
@@ -24,11 +28,13 @@ assert FINALPATH.is_dir(), f'Directory not exists: {FINALPATH}'
 PUBLIC_PATH = __Path('__PUBLIC_PATH__')  # /var/www/$app
 assert PUBLIC_PATH.is_dir(), f'Directory not exists: {PUBLIC_PATH}'
 
-LOG_FILE = __Path('__LOG_FILE__')  # /var/log/$app/django_example_ynh.log
+LOG_FILE = __Path('__LOG_FILE__')  # /var/log/$app/for_runners_ynh.log
 assert LOG_FILE.is_file(), f'File not exists: {LOG_FILE}'
 
 PATH_URL = '__PATH_URL__'  # $YNH_APP_ARG_PATH
 PATH_URL = PATH_URL.strip('/')
+
+YNH_CURRENT_HOST = '__YNH_CURRENT_HOST__'  # YunoHost main domain from: /etc/yunohost/current_host
 
 # -----------------------------------------------------------------------------
 # config_panel.toml settings:
@@ -48,13 +54,15 @@ YNH_SETUP_USER = 'setup_user.setup_project_user'
 
 SECRET_KEY = __get_or_create_secret(FINALPATH / 'secret.txt')  # /opt/yunohost/$app/secret.txt
 
-INSTALLED_APPS.append('django_yunohost_integration')
+INSTALLED_APPS.append('django_yunohost_integration.apps.YunohostIntegrationConfig')
 
 MIDDLEWARE.insert(
     MIDDLEWARE.index('django.contrib.auth.middleware.AuthenticationMiddleware') + 1,
     # login a user via HTTP_REMOTE_USER header from SSOwat:
     'django_yunohost_integration.sso_auth.auth_middleware.SSOwatRemoteUserMiddleware',
 )
+# AxesMiddleware should be the last middleware:
+MIDDLEWARE.append('axes.middleware.AxesMiddleware')
 
 # Keep ModelBackend around for per-user permissions and superuser
 AUTHENTICATION_BACKENDS = (
