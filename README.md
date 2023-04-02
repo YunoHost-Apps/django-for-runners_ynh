@@ -5,7 +5,8 @@ It shall NOT be edited by hand.
 
 # django-for-runners for YunoHost
 
-[![Integration level](https://dash.yunohost.org/integration/django-for-runners.svg)](https://dash.yunohost.org/appci/app/django-for-runners) ![Working status](https://ci-apps.yunohost.org/ci/badges/django-for-runners.status.svg) ![Maintenance status](https://ci-apps.yunohost.org/ci/badges/django-for-runners.maintain.svg)  
+[![Integration level](https://dash.yunohost.org/integration/django-for-runners.svg)](https://dash.yunohost.org/appci/app/django-for-runners) ![Working status](https://ci-apps.yunohost.org/ci/badges/django-for-runners.status.svg) ![Maintenance status](https://ci-apps.yunohost.org/ci/badges/django-for-runners.maintain.svg)
+
 [![Install django-for-runners with YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=django-for-runners)
 
 *[Lire ce readme en français.](./README_fr.md)*
@@ -33,8 +34,7 @@ This package for YunoHost used [django-yunohost-integration](https://github.com/
 More screenshots are here: [jedie.github.io/tree/master/screenshots/django-for-runners](https://github.com/jedie/jedie.github.io/tree/master/screenshots/django-for-runners/README.creole)
 
 
-**Shipped version:** 0.15.0~ynh2
-
+**Shipped version:** 0.17.2~ynh1
 
 ## Screenshots
 
@@ -200,6 +200,8 @@ Notes:
 ## Documentation and resources
 
 * Official app website: <https://github.com/jedie/django-for-runners>
+* Official user documentation: <https://github.com/jedie/django-for-runners>
+* Official admin documentation: <https://github.com/jedie/django-for-runners>
 * Upstream app code repository: <https://github.com/jedie/django-for-runners>
 * YunoHost documentation for this app: <https://yunohost.org/app_django-for-runners>
 * Report a bug: <https://github.com/YunoHost-Apps/django-for-runners_ynh/issues>
