@@ -12,7 +12,6 @@ if settings.PATH_URL:
         path(f'{settings.PATH_URL}/media/<slug:user_name>/<path:path>', UserMediaView.as_view()),
         # TODO: https://github.com/jedie/django-for-runners/issues/25
         # path(settings.MEDIA_URL.lstrip('/'), include('django_tools.serve_media_app.urls')),
-
         path(f'{settings.PATH_URL}/', admin.site.urls),
     ]
 else:
