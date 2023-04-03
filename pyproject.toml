@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "for_runners_ynh"
-version = "0.17.3+ynh1"
+version = "0.17.3+ynh2"
 description = "YunoHost app package for https://github.com/jedie/django-for-runners"
 authors = ["Jens Diemer <git@jensdiemer.de>"]
 homepage = "https://github.com/YunoHost-Apps/django-for-runners_ynh"
