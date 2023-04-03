@@ -1,36 +1,53 @@
 [tool.poetry]
 name = "for_runners_ynh"
-version = "0.15.0+ynh2"
-description = "Test for_runners_ynh via local_test.py"
-authors = ["JensDiemer <git@jensdiemer.de>"]
-license = "GPL"
+version = "0.17.3+ynh1"
+description = "YunoHost app package for https://github.com/jedie/django-for-runners"
+authors = ["Jens Diemer <git@jensdiemer.de>"]
 homepage = "https://github.com/YunoHost-Apps/django-for-runners_ynh"
+license = "GPL-3.0-or-later"
+readme = 'README.md'
 
 [tool.poetry.urls]
 "Bug Tracker" = "https://github.com/YunoHost-Apps/django-for-runners_ynh/issues"
 
 [tool.poetry.dependencies]
-python = ">=3.7,<4.0.0"  # TODO: Update to >=3.8 after YunoHost updates to Bullseye
-django_yunohost_integration = {version = ">=0.4.0", extras = ["ynh"]}
+python = ">=3.9,<4.0.0"  # Stay with 3.9 until YunoHost used >=Debian 11 (Bullseye)
+#
+django_for_runners = ">=0.17.3"  # https://github.com/jedie/django-for-runners
+#
+# extras "ynh" will install: gunicorn, psycopg2, django-redis and django-axes
+# see: https://github.com/YunoHost-Apps/django_yunohost_integration/blob/main/pyproject.toml
+django_yunohost_integration = {version = ">=0.5.1", extras = ["ynh"]}  # https://github.com/YunoHost-Apps/django_yunohost_integration
 
-django-for-runners = ">=0.15.0"
 
 [tool.poetry.dev-dependencies]
 bx_py_utils = "*"  # https://github.com/boxine/bx_py_utils
 bx_django_utils = "*"  # https://github.com/boxine/bx_django_utils
-tox = "*"
+tox = ">=4.4.4"  # https://github.com/tox-dev/tox
+coverage= "*"  # https://github.com/nedbat/coveragepy
+flake8 = "*"  # https://github.com/pycqa/flake8
+EditorConfig = "*"  # https://github.com/editorconfig/editorconfig-core-py
+safety = "*"  # https://github.com/pyupio/safety
+mypy = "*"  # https://github.com/python/mypy
+twine = "*"  # https://github.com/pypa/twine
+poetry-publish = "*"  # https://github.com/jedie/poetry-publish
 pytest = "*"
 pytest-cov = "*"
 pytest-django = "*"
-pytest-darker = "*"  # https://github.com/akaihola/pytest-darker
-coveralls = "*"
-isort = "*"
-flake8 = "*"
-EditorConfig = "*"  # https://github.com/editorconfig/editorconfig-core-py
-safety = "*"  # https://github.com/pyupio/safety
 requests = "*"  # https://github.com/psf/requests
-packaging = "*"  # https://github.com/pypa/packaging
+packaging = "*"  # https://github.com/pypa/packagi
+beautifulsoup4 = "*"  # https://pypi.org/project/beautifulsoup4/
 
+# https://github.com/akaihola/darker
+# https://github.com/ikamensh/flynt
+# https://github.com/pycqa/isort
+# https://github.com/pygments/pygments
+darker = { version = "*", extras = ["flynt", "isort", "color"] }
+
+tomli = "*"  # https://github.com/hukkin/tomli
+# tomli only needed for Python <3.11, but see bug:
+# https://github.com/pypa/pip/issues/9644#issuecomment-1456583402
+#tomli = {version = "*", markers = "python_version < \"3.11\""}  # https://github.com/hukkin/tomli
 
 [build-system]
 requires = ["poetry-core"]
@@ -40,13 +57,15 @@ build-backend = "poetry.core.masonry.api"
 [tool.darker]
 src = ['.']
 revision = "origin/master..."
-line_length = 100
+line_length = 119
 verbose = true
+color = true
 skip_string_normalization = true
 diff = false
 check = false
 stdout = false
 isort = true
+flynt = true
 lint = [
     "flake8",
 ]
@@ -57,9 +76,9 @@ log_level = "INFO"
 # https://pycqa.github.io/isort/docs/configuration/config_files/#pyprojecttoml-preferred-format
 atomic=true
 profile='black'
-skip_glob=["*/htmlcov/*","*/migrations/*","*/local_test/*"]
-line_length=100
-known_first_party=["for_runners"]
+skip_glob=[".*", "*/htmlcov/*","*/migrations/*","*/local_test/*"]
+known_first_party=['for_runners']
+line_length=119
 lines_after_imports=2
 
 
@@ -78,12 +97,12 @@ addopts = """
     --reuse-db
     --nomigrations
     --cov=.
+    --cov-config=pyproject.toml
     --cov-report term-missing
     --cov-report html
     --cov-report xml
     --no-cov-on-fail
     --showlocals
-    --darker
     --doctest-modules
     --failed-first
     --new-first
@@ -91,20 +110,58 @@ addopts = """
 
 
 [tool.coverage.run]
-omit = [".*"]
+branch = true
+parallel = true
+concurrency = ["multiprocessing"]
+source = ['.']
+
+[tool.coverage.report]
+omit = ['.*', '*/tests/*']
+skip_empty = true
+fail_under = 30
+show_missing = true
+exclude_lines = [
+    'if self.debug:',
+    'pragma: no cover',
+    'raise NotImplementedError',
+    'if __name__ == .__main__.:',
+]
 
 
-[tool.tox]
-# https://tox.readthedocs.io/en/latest/example/basic.html#pyproject-toml-tox-legacy-ini
+[tool.tox]  # https://tox.wiki/en/latest/config.html#pyproject-toml
 legacy_tox_ini = """
 [tox]
 isolated_build = True
-envlist = py{37,38,39,310}
+envlist = py{311,310,39}
 skip_missing_interpreters = True
 
 [testenv]
 passenv = *
-whitelist_externals = make
+skip_install = true
+allowlist_externals = make
 commands =
     make pytest
 """
+
+
+[manageprojects] # https://github.com/jedie/manageprojects
+initial_revision = "2281f4b"
+initial_date = 2023-04-02T17:40:58+02:00
+cookiecutter_template = "https://github.com/jedie/cookiecutter_templates/"
+cookiecutter_directory = "yunohost_django_package"
+
+[manageprojects.cookiecutter_context.cookiecutter]
+project_name = "django-for-runners"
+full_name = "Jens Diemer"
+github_username = "jedie"
+author_email = "git@jensdiemer.de"
+upstream_pkg_name = "django_for_runners"
+upstream_url = "https://github.com/jedie/django-for-runners"
+ynh_app_pkg_name = "for_runners_ynh"
+ynh_app_url = "https://github.com/YunoHost-Apps/django-for-runners_ynh"
+bug_tracker_url = "https://github.com/jedie/django-for-runners/issues"
+upstream_version = "0.0.1"
+ynh_version = "1"
+package_description = "YunoHost app package for https://github.com/jedie/django-for-runners"
+license = "GPL-3.0-or-later"
+_template = "https://github.com/jedie/cookiecutter_templates/"

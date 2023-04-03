@@ -11,6 +11,10 @@ admin=$YNH_APP_ARG_ADMIN
 is_public=$YNH_APP_ARG_IS_PUBLIC
 app=$YNH_APP_INSTANCE_NAME
 
+# Transfer the main SSO domain to the App:
+ynh_current_host=$(cat /etc/yunohost/current_host)
+__YNH_CURRENT_HOST__=${ynh_current_host}
+
 #=================================================
 # ARGUMENTS FROM CONFIG PANEL
 #=================================================

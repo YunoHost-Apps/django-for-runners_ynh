@@ -165,6 +165,9 @@ cd "$final_path" || exit
 ./manage.py diffsettings
 
 ./manage.py migrate --no-input
+
+./manage.py fill_basedata  # Special from django-for-runners
+
 ./manage.py collectstatic --no-input
 
 # Create/update Django superuser (set unusable password, because auth done via SSOwat):

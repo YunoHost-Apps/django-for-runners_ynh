@@ -5,7 +5,8 @@ It shall NOT be edited by hand.
 
 # django-for-runners for YunoHost
 
-[![Integration level](https://dash.yunohost.org/integration/django-for-runners.svg)](https://dash.yunohost.org/appci/app/django-for-runners) ![Working status](https://ci-apps.yunohost.org/ci/badges/django-for-runners.status.svg) ![Maintenance status](https://ci-apps.yunohost.org/ci/badges/django-for-runners.maintain.svg)  
+[![Integration level](https://dash.yunohost.org/integration/django-for-runners.svg)](https://dash.yunohost.org/appci/app/django-for-runners) ![Working status](https://ci-apps.yunohost.org/ci/badges/django-for-runners.status.svg) ![Maintenance status](https://ci-apps.yunohost.org/ci/badges/django-for-runners.maintain.svg)
+
 [![Install django-for-runners with YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=django-for-runners)
 
 *[Lire ce readme en français.](./README_fr.md)*
@@ -15,7 +16,7 @@ If you don't have YunoHost, please consult [the guide](https://yunohost.org/#/in
 
 ## Overview
 
-![Logo](https://raw.githubusercontent.com/jedie/django-for-runners/main/src/for_runners/static/Django-ForRunners128.png)
+![Logo](https://raw.githubusercontent.com/jedie/django-for-runners/main/for_runners/static/Django-ForRunners128.png)
 
 [django-for-runners](https://github.com/jedie/django-for-runners) is a libre web-based management for your GPX tracks of your running (or other sports activity). Used [Python](https://www.python.org/)/[Django](https://www.djangoproject.com/).
 
@@ -33,8 +34,7 @@ This package for YunoHost used [django-yunohost-integration](https://github.com/
 More screenshots are here: [jedie.github.io/tree/master/screenshots/django-for-runners](https://github.com/jedie/jedie.github.io/tree/master/screenshots/django-for-runners/README.creole)
 
 
-**Shipped version:** 0.15.0~ynh2
-
+**Shipped version:** 0.17.3~ynh1
 
 ## Screenshots
 
@@ -199,7 +199,8 @@ Notes:
 
 ## Documentation and resources
 
-* Official app website: <https://github.com/jedie/django-for-runners>
+* Official user documentation: <https://github.com/jedie/django-for-runners>
+* Official admin documentation: <https://github.com/YunoHost-Apps/django-for-runners_ynh>
 * Upstream app code repository: <https://github.com/jedie/django-for-runners>
 * YunoHost documentation for this app: <https://yunohost.org/app_django-for-runners>
 * Report a bug: <https://github.com/YunoHost-Apps/django-for-runners_ynh/issues>
