@@ -159,9 +159,10 @@ LOGGING['handlers']['log_file']['filename'] = str(LOG_FILE)
 # Example how to add logging to own app:
 LOGGING['loggers']['for_runners'] = {
     'handlers': ['syslog', 'log_file', 'mail_admins'],
-    'level': 'INFO',
     'propagate': False,
 }
+for __logger_name in LOGGING['loggers'].keys():
+    LOGGING['loggers'][__logger_name]['level'] = 'DEBUG' if DEBUG else LOG_LEVEL
 
 # -----------------------------------------------------------------------------
 
