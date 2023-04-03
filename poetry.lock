@@ -774,14 +774,14 @@ sqlparse = ">=0.2"
 
 [[package]]
 name = "django-for-runners"
-version = "0.17.2"
+version = "0.17.3rc0"
 description = "Store your GPX tracks of your running (or other sports activity) in django."
 category = "main"
 optional = false
 python-versions = "<4,>=3.9"
 files = [
-    {file = "django-for-runners-0.17.2.tar.gz", hash = "sha256:e8872410d6f06e6260eb8c021dc024a97dedd80fd5d7052b3b760b82e899ee1f"},
-    {file = "django_for_runners-0.17.2-py3-none-any.whl", hash = "sha256:ac9aaa06289e41af6d66ac92fdbeafe5f68242c3cb523ae3ba6c5d0241653e2b"},
+    {file = "django-for-runners-0.17.3rc0.tar.gz", hash = "sha256:4c97604788986061b49f850db9b635b8aa480bbaed399a71febbd7c2f42381ba"},
+    {file = "django_for_runners-0.17.3rc0-py3-none-any.whl", hash = "sha256:a505faebc99fa5243f2fb6f736f0dd2ad298c0ec6fbd5abe2ac4ff0c578ff129"},
 ]
 
 [package.dependencies]
@@ -2712,4 +2712,4 @@ testing = ["big-O", "flake8 (<5)", "jaraco.functools", "jaraco.itertools", "more
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.9,<4.0.0"  # Stay with 3.9 until YunoHost used >=Debian 11 (Bullseye)
-content-hash = "98b87562179ec1fd7b7580d6b07a17d28a131ca7d29338eebd69d9759a257745"
+content-hash = "8a41ab1d694b323d1285a7bd196f5556ae41b4b7023988ec4ab52b838912da9a"
