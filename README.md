@@ -169,7 +169,7 @@ root@yunohost:~# cat /etc/systemd/system/django-for-runners.service
 
 root@yunohost:~# systemctl reload-or-restart django-for-runners
 root@yunohost:~# systemctl status django-for-runners
-root@yunohost:~# journalctl --unit=for_runners --follow
+root@yunohost:~# journalctl --unit=django-for-runners --follow
 ```
 
 ## local test
