@@ -9,10 +9,11 @@ if settings.PATH_URL:
     # settings.PATH_URL is the $YNH_APP_ARG_PATH
     # Prefix all urls with "PATH_URL":
     urlpatterns = [
-        path(f'{settings.PATH_URL}/', admin.site.urls),
         path(f'{settings.PATH_URL}/media/<slug:user_name>/<path:path>', UserMediaView.as_view()),
         # TODO: https://github.com/jedie/django-for-runners/issues/25
         # path(settings.MEDIA_URL.lstrip('/'), include('django_tools.serve_media_app.urls')),
+
+        path(f'{settings.PATH_URL}/', admin.site.urls),
     ]
 else:
     # Installed to domain root, without a path prefix
