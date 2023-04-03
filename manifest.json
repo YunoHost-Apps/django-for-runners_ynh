@@ -5,12 +5,11 @@
 	"description": {
         "en": "Store your GPX tracks of your running (or other sports activity)"
     },
-	"version": "0.17.3rc0~ynh1",
-	"url": "https://github.com/YunoHost-Apps/django-for-runners_ynh",
+	"version": "0.17.3~ynh1",
+	"url": "https://github.com/jedie/django-for-runners",
     "upstream": {
         "license": "GPL-3.0",
-        "website": "https://github.com/jedie/django-for-runners",
-        "admindoc": "https://github.com/jedie/django-for-runners",
+        "admindoc": "https://github.com/YunoHost-Apps/django-for-runners_ynh",
         "userdoc": "https://github.com/jedie/django-for-runners",
         "code": "https://github.com/jedie/django-for-runners"
     },

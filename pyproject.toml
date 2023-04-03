@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "for_runners_ynh"
-version = "0.17.3rc0+ynh1"
+version = "0.17.3+ynh1"
 description = "YunoHost app package for https://github.com/jedie/django-for-runners"
 authors = ["Jens Diemer <git@jensdiemer.de>"]
 homepage = "https://github.com/YunoHost-Apps/django-for-runners_ynh"
@@ -13,7 +13,7 @@ readme = 'README.md'
 [tool.poetry.dependencies]
 python = ">=3.9,<4.0.0"  # Stay with 3.9 until YunoHost used >=Debian 11 (Bullseye)
 #
-django_for_runners = ">=0.17.3rc0"  # https://github.com/jedie/django-for-runners
+django_for_runners = ">=0.17.3"  # https://github.com/jedie/django-for-runners
 #
 # extras "ynh" will install: gunicorn, psycopg2, django-redis and django-axes
 # see: https://github.com/YunoHost-Apps/django_yunohost_integration/blob/main/pyproject.toml
@@ -160,7 +160,7 @@ upstream_url = "https://github.com/jedie/django-for-runners"
 ynh_app_pkg_name = "for_runners_ynh"
 ynh_app_url = "https://github.com/YunoHost-Apps/django-for-runners_ynh"
 bug_tracker_url = "https://github.com/jedie/django-for-runners/issues"
-upstream_version = "0.17.3rc0"
+upstream_version = "0.0.1"
 ynh_version = "1"
 package_description = "YunoHost app package for https://github.com/jedie/django-for-runners"
 license = "GPL-3.0-or-later"
