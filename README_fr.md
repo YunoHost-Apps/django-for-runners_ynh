@@ -34,7 +34,7 @@ This package for YunoHost used [django-yunohost-integration](https://github.com/
 More screenshots are here: [jedie.github.io/tree/master/screenshots/django-for-runners](https://github.com/jedie/jedie.github.io/tree/master/screenshots/django-for-runners/README.creole)
 
 
-**Version incluse :** 0.17.3rc0~ynh1
+**Version incluse :** 0.17.3~ynh1
 
 ## Captures d’écran
 
@@ -199,9 +199,8 @@ Notes:
 
 ## Documentations et ressources
 
-* Site officiel de l’app : <https://github.com/jedie/django-for-runners>
 * Documentation officielle utilisateur : <https://github.com/jedie/django-for-runners>
-* Documentation officielle de l’admin : <https://github.com/jedie/django-for-runners>
+* Documentation officielle de l’admin : <https://github.com/YunoHost-Apps/django-for-runners_ynh>
 * Dépôt de code officiel de l’app : <https://github.com/jedie/django-for-runners>
 * Documentation YunoHost pour cette app : <https://yunohost.org/app_django-for-runners>
 * Signaler un bug : <https://github.com/YunoHost-Apps/django-for-runners_ynh/issues>
