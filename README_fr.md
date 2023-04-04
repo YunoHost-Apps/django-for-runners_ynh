@@ -34,7 +34,7 @@ This package for YunoHost used [django-yunohost-integration](https://github.com/
 More screenshots are here: [jedie.github.io/tree/master/screenshots/django-for-runners](https://github.com/jedie/jedie.github.io/tree/master/screenshots/django-for-runners/README.creole)
 
 
-**Version incluse :** 0.17.3~ynh1
+**Version incluse :** 0.17.3~ynh2
 
 ## Captures d’écran
 
@@ -168,6 +168,7 @@ root@yunohost:~# tail -f /var/log/django-for-runners/django-for-runners.log
 root@yunohost:~# cat /etc/systemd/system/django-for-runners.service
 
 root@yunohost:~# systemctl reload-or-restart django-for-runners
+root@yunohost:~# systemctl status django-for-runners
 root@yunohost:~# journalctl --unit=for_runners --follow
 ```
 

@@ -122,6 +122,7 @@ root@yunohost:~# tail -f /var/log/django-for-runners/django-for-runners.log
 root@yunohost:~# cat /etc/systemd/system/django-for-runners.service
 
 root@yunohost:~# systemctl reload-or-restart django-for-runners
+root@yunohost:~# systemctl status django-for-runners
 root@yunohost:~# journalctl --unit=for_runners --follow
 ```
 
