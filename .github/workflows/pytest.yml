@@ -1,6 +1,8 @@
 name: pytest
 
 on:
+  # Allow to manually trigger the workflow
+  workflow_dispatch:
   push:
     branches:
       - master
@@ -12,22 +14,29 @@ jobs:
   test:
     runs-on: ubuntu-latest
     strategy:
-      max-parallel: 2
       matrix:
         python-version: ["3.11", "3.10", "3.9"]
+    env:
+      PYTHONUNBUFFERED: 1
+      PYTHONWARNINGS: always
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
+      # https://github.com/marketplace/actions/checkout
       with:
         fetch-depth: 0
-    - name: 'fetch master'
+
+    - name: 'fetch master and testing (for Darker/Black)'
       run: |
         git fetch origin master
+        git fetch origin testing
+
     - name: 'Set up Python ${{ matrix.python-version }}'
       uses: actions/setup-python@v2
       with:
         python-version: '${{ matrix.python-version }}'
 
-    - uses: actions/cache@v2
+    - uses: actions/cache@v3
+      # https://github.com/marketplace/actions/cache
       with:
         path: ~/.cache/
         key: dot-cache-files
@@ -50,7 +59,8 @@ jobs:
         make safety
 
     - name: 'Upload coverage report'
-      uses: codecov/codecov-action@v2
+      uses: codecov/codecov-action@v3
+      # https://github.com/marketplace/actions/codecov
       with:
         fail_ci_if_error: false
         verbose: true
