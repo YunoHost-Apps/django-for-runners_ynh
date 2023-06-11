@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "for_runners_ynh"
-version = "0.17.3+ynh2"
+version = "0.17.3+ynh3"
 description = "YunoHost app package for https://github.com/jedie/django-for-runners"
 authors = ["Jens Diemer <git@jensdiemer.de>"]
 homepage = "https://github.com/YunoHost-Apps/django-for-runners_ynh"
@@ -8,7 +8,7 @@ license = "GPL-3.0-or-later"
 readme = 'README.md'
 
 [tool.poetry.urls]
-"Bug Tracker" = "https://github.com/YunoHost-Apps/django-for-runners_ynh/issues"
+"Bug Tracker" = "https://github.com/jedie/django-for-runners/issues"
 
 [tool.poetry.dependencies]
 python = ">=3.9,<4.0.0"  # Stay with 3.9 until YunoHost used >=Debian 11 (Bullseye)
@@ -149,6 +149,9 @@ initial_revision = "2281f4b"
 initial_date = 2023-04-02T17:40:58+02:00
 cookiecutter_template = "https://github.com/jedie/cookiecutter_templates/"
 cookiecutter_directory = "yunohost_django_package"
+applied_migrations = [
+    "183124a", # 2023-04-04T12:26:15+02:00
+]
 
 [manageprojects.cookiecutter_context.cookiecutter]
 project_name = "django-for-runners"
@@ -157,11 +160,14 @@ github_username = "jedie"
 author_email = "git@jensdiemer.de"
 upstream_pkg_name = "django_for_runners"
 upstream_url = "https://github.com/jedie/django-for-runners"
+upstream_pkg_app_name = "for_runners"
+upstream_pkg_project_name = "for_runners_project"
 ynh_app_pkg_name = "for_runners_ynh"
 ynh_app_url = "https://github.com/YunoHost-Apps/django-for-runners_ynh"
 bug_tracker_url = "https://github.com/jedie/django-for-runners/issues"
-upstream_version = "0.0.1"
-ynh_version = "1"
+upstream_version = "0.17.3"
+ynh_version = "+ynh3"
 package_description = "YunoHost app package for https://github.com/jedie/django-for-runners"
 license = "GPL-3.0-or-later"
 _template = "https://github.com/jedie/cookiecutter_templates/"
+
