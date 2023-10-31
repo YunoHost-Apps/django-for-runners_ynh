@@ -203,7 +203,7 @@ Notes:
 * Official user documentation: <https://github.com/jedie/django-for-runners>
 * Official admin documentation: <https://github.com/YunoHost-Apps/django-for-runners_ynh>
 * Upstream app code repository: <https://github.com/jedie/django-for-runners>
-* YunoHost documentation for this app: <https://yunohost.org/app_django-for-runners>
+* YunoHost Store: <https://apps.yunohost.org/app/django-for-runners>
 * Report a bug: <https://github.com/YunoHost-Apps/django-for-runners_ynh/issues>
 
 ## Developer info
