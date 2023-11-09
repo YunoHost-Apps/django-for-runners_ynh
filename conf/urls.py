@@ -6,7 +6,7 @@ from for_runners.views.media_files import UserMediaView
 
 
 if settings.PATH_URL:
-    # settings.PATH_URL is the $YNH_APP_ARG_PATH
+    # settings.PATH_URL is __PATH__
     # Prefix all urls with "PATH_URL":
     urlpatterns = [
         path(f'{settings.PATH_URL}/media/<slug:user_name>/<path:path>', UserMediaView.as_view()),
