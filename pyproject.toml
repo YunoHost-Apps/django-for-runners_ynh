@@ -24,7 +24,7 @@ dependencies = [
 [project.optional-dependencies]
 dev = [
     "bx_django_utils",  # https://github.com/boxine/bx_django_utils
-    "beautifulsoup4",
+    "beautifulsoup4",  # https://pypi.org/project/beautifulsoup4/
     #
     # TODO: Remove "pytest" and use normal unittests ;)
     "pytest",
@@ -196,6 +196,7 @@ cookiecutter_directory = "yunohost_django_package"
 applied_migrations = [
     "183124a", # 2023-04-04T12:26:15+02:00
     "3383cb0", # 2023-11-09T20:14:05+01:00
+    "4abd4c0", # 2023-11-25T15:59:31+01:00
 ]
 
 [manageprojects.cookiecutter_context.cookiecutter]
