@@ -1,13 +1,10 @@
-![Logo](https://raw.githubusercontent.com/jedie/django-for-runners/main/for_runners/static/Django-ForRunners128.png)
+[![tests](https://github.com/YunoHost-Apps/django-for-runners_ynh/actions/workflows/tests.yml/badge.svg?branch=main)](https://github.com/YunoHost-Apps/django-for-runners_ynh/actions/workflows/tests.yml)
+[![codecov](https://codecov.io/github/jedie/for_runners_ynh/branch/main/graph/badge.svg)](https://app.codecov.io/github/jedie/for_runners_ynh)
+[![for_runners_ynh @ PyPi](https://img.shields.io/pypi/v/for_runners_ynh?label=for_runners_ynh%20%40%20PyPi)](https://pypi.org/project/for_runners_ynh/)
+[![Python Versions](https://img.shields.io/pypi/pyversions/for_runners_ynh)](https://github.com/YunoHost-Apps/django-for-runners_ynh/blob/main/pyproject.toml)
+[![License GPL-3.0-or-later](https://img.shields.io/pypi/l/for_runners_ynh)](https://github.com/YunoHost-Apps/django-for-runners_ynh/blob/main/LICENSE)
 
 [django-for-runners](https://github.com/jedie/django-for-runners) is a libre web-based management for your GPX tracks of your running (or other sports activity). Used [Python](https://www.python.org/)/[Django](https://www.djangoproject.com/).
-
-
-[![pytest](https://github.com/YunoHost-Apps/django-for-runners_ynh/actions/workflows/pytest.yml/badge.svg?branch=master)](https://github.com/YunoHost-Apps/django-for-runners_ynh/actions/workflows/pytest.yml) [![YunoHost apps package linter](https://github.com/YunoHost-Apps/django-for-runners_ynh/actions/workflows/package_linter.yml/badge.svg)](https://github.com/YunoHost-Apps/django-for-runners_ynh/actions/workflows/package_linter.yml) [![Coverage Status on codecov.io](https://codecov.io/gh/YunoHost-Apps/django-for-runners_ynh/branch/master/graph/badge.svg)](https://codecov.io/gh/YunoHost-Apps/django-for-runners_ynh)
-
-![django-for-runners @ PyPi](https://img.shields.io/pypi/v/django-for-runners?label=django-for-runners%20%40%20PyPi)
-![Python Versions](https://img.shields.io/pypi/pyversions/django-for-runners)
-![License GPL V3+](https://img.shields.io/pypi/l/django-for-runners)
 
 Pull requests welcome ;)
 
