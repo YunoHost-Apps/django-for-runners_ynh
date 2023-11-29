@@ -1,6 +1,5 @@
 from unittest.mock import patch
 
-import for_runners
 from axes.models import AccessLog
 from bx_django_utils.test_utils.html_assertion import HtmlAssertionMixin, assert_html_response_snapshot
 from django.conf import LazySettings, settings
@@ -10,6 +9,7 @@ from django.test import override_settings
 from django.test.testcases import TestCase
 from django.urls.base import reverse
 from django_yunohost_integration.test_utils import generate_basic_auth
+from for_runners import __version__ as upstream_version
 
 
 @override_settings(DEBUG=False)
@@ -28,7 +28,9 @@ class DjangoYnhTestCase(HtmlAssertionMixin, TestCase):
 
         assert str(settings.DATA_DIR_PATH).endswith('/local_test/opt_yunohost')
         assert str(settings.INSTALL_DIR_PATH).endswith('/local_test/var_www')
-        assert str(settings.LOG_FILE_PATH).endswith('/local_test/var_log_django-for-runners.log')
+        assert str(settings.LOG_FILE_PATH).endswith(
+            '/local_test/var_log_django-for-runners.log'
+        ), f'{settings.LOG_FILE_PATH=}'
 
         assert settings.ROOT_URLCONF == 'urls'
 
@@ -39,19 +41,9 @@ class DjangoYnhTestCase(HtmlAssertionMixin, TestCase):
         assert settings.ADMIN_EMAIL == 'foo-bar@test.tld'
         assert settings.DEFAULT_FROM_EMAIL == 'django_app@test.tld'
 
-    def test_urls(self):
-        assert reverse('admin:index') == '/app_path/'
-
-        # TODO: https://github.com/jedie/django-for-runners/issues/25
-        # Serve user uploads via django_tools.serve_media_app:
-        # assert settings.MEDIA_URL == '/app_path/media/'
-        # assert reverse(
-        #     'serve_media_app:serve-media', kwargs={'user_token': 'token', 'path': 'foo/bar/'}
-        # ) == ('/app_path/media/token/foo/bar/')
-
     def test_auth(self):
         assert settings.PATH_URL == 'app_path'
-        assert reverse('admin:index') == '/app_path/'
+        self.assertEqual(reverse('admin:index'), '/app_path/')
 
         # SecurityMiddleware should redirects all non-HTTPS requests to HTTPS:
         assert settings.SECURE_SSL_REDIRECT is True
@@ -65,7 +57,9 @@ class DjangoYnhTestCase(HtmlAssertionMixin, TestCase):
 
         response = self.client.get('/app_path/', secure=True)
         self.assertRedirects(
-            response, expected_url='/app_path/login/?next=/app_path/', fetch_redirect_response=False
+            response,
+            expected_url='/app_path/login/?next=%2Fapp_path%2F',
+            fetch_redirect_response=False,
         )
 
     def test_create_unknown_user(self):
@@ -92,11 +86,11 @@ class DjangoYnhTestCase(HtmlAssertionMixin, TestCase):
         self.assert_html_parts(
             response,
             parts=(
-                f'<title>Site administration | Django-ForRunners v{for_runners.__version__}</title>',
+                f'<title>Site administration | Django-ForRunners v{upstream_version}</title>',
                 '<strong>test</strong>',
             ),
         )
-        assert_html_response_snapshot(response, query_selector='#container', validate=False)
+        assert_html_response_snapshot(response, query_selector='#main', validate=False)
 
     def test_wrong_auth_user(self):
         assert User.objects.count() == 0
@@ -105,7 +99,7 @@ class DjangoYnhTestCase(HtmlAssertionMixin, TestCase):
         self.client.cookies['SSOwAuthUser'] = 'test'
 
         response = self.client.get(
-            path='/app_path/',
+            path='/app_path/admin/',
             HTTP_REMOTE_USER='test',
             HTTP_AUTH_USER='foobar',  # <<< wrong user name
             HTTP_AUTHORIZATION='basic dGVzdDp0ZXN0MTIz',
