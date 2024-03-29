@@ -1,20 +1,20 @@
 <!--
-Nota bene : ce README est automatiquement généré par <https://github.com/YunoHost/apps/tree/master/tools/readme_generator>
-Il NE doit PAS être modifié à la main.
+N.B.: Questo README è stato automaticamente generato da <https://github.com/YunoHost/apps/tree/master/tools/readme_generator>
+NON DEVE essere modificato manualmente.
 -->
 
-# django-for-runners pour YunoHost
+# django-for-runners per YunoHost
 
-[![Niveau d’intégration](https://dash.yunohost.org/integration/django-for-runners.svg)](https://dash.yunohost.org/appci/app/django-for-runners) ![Statut du fonctionnement](https://ci-apps.yunohost.org/ci/badges/django-for-runners.status.svg) ![Statut de maintenance](https://ci-apps.yunohost.org/ci/badges/django-for-runners.maintain.svg)
+[![Livello di integrazione](https://dash.yunohost.org/integration/django-for-runners.svg)](https://dash.yunohost.org/appci/app/django-for-runners) ![Stato di funzionamento](https://ci-apps.yunohost.org/ci/badges/django-for-runners.status.svg) ![Stato di manutenzione](https://ci-apps.yunohost.org/ci/badges/django-for-runners.maintain.svg)
 
-[![Installer django-for-runners avec YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=django-for-runners)
+[![Installa django-for-runners con YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=django-for-runners)
 
-*[Lire le README dans d'autres langues.](./ALL_README.md)*
+*[Leggi questo README in altre lingue.](./ALL_README.md)*
 
-> *Ce package vous permet d’installer django-for-runners rapidement et simplement sur un serveur YunoHost.*  
-> *Si vous n’avez pas YunoHost, consultez [ce guide](https://yunohost.org/install) pour savoir comment l’installer et en profiter.*
+> *Questo pacchetto ti permette di installare django-for-runners su un server YunoHost in modo semplice e veloce.*  
+> *Se non hai YunoHost, consulta [la guida](https://yunohost.org/install) per imparare a installarlo.*
 
-## Vue d’ensemble
+## Panoramica
 
 ![Logo](https://raw.githubusercontent.com/jedie/django-for-runners/main/for_runners/static/Django-ForRunners128.png)
 
@@ -34,15 +34,15 @@ This package for YunoHost used [django-yunohost-integration](https://github.com/
 More screenshots are here: [jedie.github.io/tree/master/screenshots/django-for-runners](https://github.com/jedie/jedie.github.io/tree/master/screenshots/django-for-runners/README.creole)
 
 
-**Version incluse :** 0.17.4~ynh1
+**Versione pubblicata:** 0.17.4~ynh1
 
-## Captures d’écran
+## Screenshot
 
-![Capture d’écran de django-for-runners](./doc/screenshots/for_runners_v040_2018_6_26_gpx_info.png)
-![Capture d’écran de django-for-runners](./doc/screenshots/for_runners_v060_2018_07_19_event_costs.png)
-![Capture d’écran de django-for-runners](./doc/screenshots/for_runers_v060_2018_07_31_gpx_track.png)
+![Screenshot di django-for-runners](./doc/screenshots/for_runners_v040_2018_6_26_gpx_info.png)
+![Screenshot di django-for-runners](./doc/screenshots/for_runners_v060_2018_07_19_event_costs.png)
+![Screenshot di django-for-runners](./doc/screenshots/for_runers_v060_2018_07_31_gpx_track.png)
 
-## Avertissements / informations importantes
+## Attenzione/informazioni importanti
 
 ## Settings and upgrades
 
@@ -198,25 +198,25 @@ Notes:
 * A super user with username `test` and password `test` is created
 * The page is available under `http://127.0.0.1:8000/app_path/`
 
-## Documentations et ressources
+## Documentazione e risorse
 
-- Site officiel de l’app : <https://github.com/YunoHost-Apps/django-for-runners_ynh>
-- Documentation officielle utilisateur : <https://github.com/jedie/django-for-runners>
-- Documentation officielle de l’admin : <https://github.com/YunoHost-Apps/django-for-runners_ynh>
-- Dépôt de code officiel de l’app : <https://github.com/YunoHost-Apps/django-for-runners_ynh>
-- YunoHost Store : <https://apps.yunohost.org/app/django-for-runners>
-- Signaler un bug : <https://github.com/YunoHost-Apps/django-for-runners_ynh/issues>
+- Sito web ufficiale dell’app: <https://github.com/YunoHost-Apps/django-for-runners_ynh>
+- Documentazione ufficiale per gli utenti: <https://github.com/jedie/django-for-runners>
+- Documentazione ufficiale per gli amministratori: <https://github.com/YunoHost-Apps/django-for-runners_ynh>
+- Repository upstream del codice dell’app: <https://github.com/YunoHost-Apps/django-for-runners_ynh>
+- Store di YunoHost: <https://apps.yunohost.org/app/django-for-runners>
+- Segnala un problema: <https://github.com/YunoHost-Apps/django-for-runners_ynh/issues>
 
-## Informations pour les développeurs
+## Informazioni per sviluppatori
 
-Merci de faire vos pull request sur la [branche `testing`](https://github.com/YunoHost-Apps/django-for-runners_ynh/tree/testing).
+Si prega di inviare la tua pull request alla [branch di `testing`](https://github.com/YunoHost-Apps/django-for-runners_ynh/tree/testing).
 
-Pour essayer la branche `testing`, procédez comme suit :
+Per provare la branch di `testing`, si prega di procedere in questo modo:
 
 ```bash
 sudo yunohost app install https://github.com/YunoHost-Apps/django-for-runners_ynh/tree/testing --debug
-ou
+o
 sudo yunohost app upgrade django-for-runners -u https://github.com/YunoHost-Apps/django-for-runners_ynh/tree/testing --debug
 ```
 
-**Plus d’infos sur le packaging d’applications :** <https://yunohost.org/packaging_apps>
+**Maggiori informazioni riguardo il pacchetto di quest’app:** <https://yunohost.org/packaging_apps>
