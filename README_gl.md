@@ -41,9 +41,7 @@ More screenshots are here: [jedie.github.io/tree/master/screenshots/django-for-r
 
 ## Documentación e recursos
 
-- Documentación oficial para usuarias: <https://github.com/jedie/django-for-runners>
-- Documentación oficial para admin: <https://github.com/YunoHost-Apps/django-for-runners_ynh>
-- Repositorio de orixe do código: <https://github.com/YunoHost-Apps/django-for-runners_ynh>
+- Repositorio de orixe do código: <https://github.com/jedie/django-for-runners>
 - Tenda YunoHost: <https://apps.yunohost.org/app/django-for-runners>
 - Informar dun problema: <https://github.com/YunoHost-Apps/django-for-runners_ynh/issues>
 
