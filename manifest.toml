@@ -13,9 +13,7 @@ maintainers = ["Jens Diemer"]
 [upstream]
 # https://yunohost.org/en/packaging_manifest#upstream-section
 license = "GPL-3.0-or-later"
-admindoc = "https://github.com/YunoHost-Apps/django-for-runners_ynh"
-userdoc = "https://github.com/jedie/django-for-runners"
-code = "https://github.com/YunoHost-Apps/django-for-runners_ynh"
+code = "https://github.com/jedie/django-for-runners"
 
 
 

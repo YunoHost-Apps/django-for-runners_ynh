@@ -41,9 +41,7 @@ More screenshots are here: [jedie.github.io/tree/master/screenshots/django-for-r
 
 ## 文档与资源
 
-- 官方用户文档： <https://github.com/jedie/django-for-runners>
-- 官方管理文档： <https://github.com/YunoHost-Apps/django-for-runners_ynh>
-- 上游应用代码库： <https://github.com/YunoHost-Apps/django-for-runners_ynh>
+- 上游应用代码库： <https://github.com/jedie/django-for-runners>
 - YunoHost 商店： <https://apps.yunohost.org/app/django-for-runners>
 - 报告 bug： <https://github.com/YunoHost-Apps/django-for-runners_ynh/issues>
 
