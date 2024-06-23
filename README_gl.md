@@ -36,8 +36,8 @@ More screenshots are here: [jedie.github.io/tree/master/screenshots/django-for-r
 ## Capturas de pantalla
 
 ![Captura de pantalla de django-for-runners](./doc/screenshots/for_runers_v060_2018_07_31_gpx_track.png)
-![Captura de pantalla de django-for-runners](./doc/screenshots/for_runners_v040_2018_6_26_gpx_info.png)
 ![Captura de pantalla de django-for-runners](./doc/screenshots/for_runners_v060_2018_07_19_event_costs.png)
+![Captura de pantalla de django-for-runners](./doc/screenshots/for_runners_v040_2018_6_26_gpx_info.png)
 
 ## Documentación e recursos
 
