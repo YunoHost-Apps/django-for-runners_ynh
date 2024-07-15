@@ -5,7 +5,7 @@ No se debe editar a mano.
 
 # django-for-runners para Yunohost
 
-[![Nivel de integración](https://dash.yunohost.org/integration/django-for-runners.svg)](https://dash.yunohost.org/appci/app/django-for-runners) ![Estado funcional](https://ci-apps.yunohost.org/ci/badges/django-for-runners.status.svg) ![Estado En Mantención](https://ci-apps.yunohost.org/ci/badges/django-for-runners.maintain.svg)
+[![Nivel de integración](https://dash.yunohost.org/integration/django-for-runners.svg)](https://ci-apps.yunohost.org/ci/apps/django-for-runners/) ![Estado funcional](https://ci-apps.yunohost.org/ci/badges/django-for-runners.status.svg) ![Estado En Mantención](https://ci-apps.yunohost.org/ci/badges/django-for-runners.maintain.svg)
 
 [![Instalar django-for-runners con Yunhost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=django-for-runners)
 
