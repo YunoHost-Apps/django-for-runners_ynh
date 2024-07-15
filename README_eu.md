@@ -5,7 +5,7 @@ EZ editatu eskuz.
 
 # django-for-runners YunoHost-erako
 
-[![Integrazio maila](https://dash.yunohost.org/integration/django-for-runners.svg)](https://dash.yunohost.org/appci/app/django-for-runners) ![Funtzionamendu egoera](https://ci-apps.yunohost.org/ci/badges/django-for-runners.status.svg) ![Mantentze egoera](https://ci-apps.yunohost.org/ci/badges/django-for-runners.maintain.svg)
+[![Integrazio maila](https://dash.yunohost.org/integration/django-for-runners.svg)](https://ci-apps.yunohost.org/ci/apps/django-for-runners/) ![Funtzionamendu egoera](https://ci-apps.yunohost.org/ci/badges/django-for-runners.status.svg) ![Mantentze egoera](https://ci-apps.yunohost.org/ci/badges/django-for-runners.maintain.svg)
 
 [![Instalatu django-for-runners YunoHost-ekin](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=django-for-runners)
 
