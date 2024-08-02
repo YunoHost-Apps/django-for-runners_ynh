@@ -9,7 +9,7 @@ authors = [
 ]
 requires-python = ">=3.9"  # Stay with 3.9 until YunoHost used >=Debian 11 (Bullseye)
 dependencies = [
-    "django_for_runners",  # https://github.com/jedie/django-for-runners
+    "django_for_runners>=0.18.1",  # https://github.com/jedie/django-for-runners
     #
     # extras "ynh" will install: gunicorn, psycopg2, django-redis and django-axes
     # see: https://github.com/YunoHost-Apps/django_yunohost_integration/blob/main/pyproject.toml
