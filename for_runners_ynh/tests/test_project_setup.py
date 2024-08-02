@@ -1,4 +1,3 @@
-import os
 
 from for_runners_ynh.cli.dev import PACKAGE_ROOT
 
@@ -12,9 +11,8 @@ from bx_django_utils.filename import clean_filename
 from bx_py_utils.path import assert_is_dir, assert_is_file
 from django.test.testcases import TestCase
 from django_tools.unittest_utils.project_setup import check_editor_config
-from django_yunohost_integration.test_utils import assert_project_version
 
-from for_runners import __version__ as upstream_version
+from django_example import __version__ as upstream_version
 from for_runners_ynh import __version__ as ynh_pkg_version
 
 
@@ -46,13 +44,6 @@ class ProjectSetupTestCase(TestCase):
         # the YunoHost syntax is: "~ynh", just "convert this:
         manifest_version = ynh_pkg_version.replace('+', '~')
         self.assertEqual(self.manifest_cfg['version'], manifest_version)
-
-        if 'GITHUB_ACTION' not in os.environ:
-            # Github has a rate-limiting... So don't fetch the API if we run as GitHub action
-            assert_project_version(
-                current_version=ynh_pkg_version,
-                github_project_url='https://github.com/jedie/django-for-runners',
-            )
 
     def test_screenshot_filenames(self):
         """

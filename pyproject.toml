@@ -25,7 +25,7 @@ dependencies = [
 dev = [
     "bx_django_utils",  # https://github.com/boxine/bx_django_utils
     "beautifulsoup4",  # https://pypi.org/project/beautifulsoup4/
-    "manageprojects>=0.15.0",  # https://github.com/jedie/manageprojects
+    "manageprojects",  # https://github.com/jedie/manageprojects
     "pip-tools",  # https://github.com/jazzband/pip-tools/
     "tblib",   # https://github.com/ionelmc/python-tblib
     "tox",  # https://github.com/tox-dev/tox
@@ -36,7 +36,7 @@ dev = [
     "pyflakes",  # https://github.com/PyCQA/pyflakes
     "codespell",  # https://github.com/codespell-project/codespell
     "EditorConfig",  # https://github.com/editorconfig/editorconfig-core-py
-    "safety",  # https://github.com/pyupio/safety
+    "pip-audit",  # https://github.com/pypa/pip-audit
     "mypy",  # https://github.com/python/mypy
     "twine",  # https://github.com/pypa/twine
 
@@ -61,6 +61,9 @@ Source = "https://github.com/YunoHost-Apps/django-for-runners_ynh"
 for_runners_ynh_app = "for_runners_ynh.__main__:main"
 for_runners_ynh_dev = "for_runners_ynh.cli.dev:main"
 
+[ynh-integration]
+local_settings_source= "local_settings_source.py"
+
 [build-system]
 requires = ["setuptools>=61.0", "setuptools_scm>=7.1"]
 build-backend = "setuptools.build_meta"
@@ -71,6 +74,14 @@ include = ["for_runners_ynh*"]
 
 [tool.setuptools.dynamic]
 version = {attr = "for_runners_ynh.__version__"}
+
+
+[tool.cli_base.pip_audit]
+# https://github.com/jedie/cli-base-utilities/blob/main/docs/pip_audit.md
+requirements=["requirements.dev.txt"]
+strict=true
+require_hashes=true
+ignore-vuln=[]
 
 
 [tool.darker]
@@ -163,6 +174,7 @@ applied_migrations = [
     "3383cb0", # 2023-11-09T20:14:05+01:00
     "4abd4c0", # 2023-11-25T15:59:31+01:00
     "2f9fd7b", # 2023-11-26T20:13:32+01:00
+    "52669d0", # 2024-08-02T15:47:04+02:00
 ]
 
 [manageprojects.cookiecutter_context.cookiecutter]
