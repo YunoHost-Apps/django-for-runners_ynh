@@ -1,30 +1,32 @@
 """
     CLI for development
 """
+
 import logging
 import shlex
 import sys
 from pathlib import Path
 
-import for_runners_ynh
 import rich_click as click
 from cli_base.cli_tools import code_style
-from cli_base.cli_tools.dev_tools import run_tox
+from cli_base.cli_tools.dev_tools import run_coverage, run_tox
 from cli_base.cli_tools.subprocess_utils import verbose_check_call
 from cli_base.cli_tools.test_utils.snapshot import UpdateTestSnapshotFiles
 from cli_base.cli_tools.verbosity import OPTION_KWARGS_VERBOSE
 from cli_base.cli_tools.version_info import print_version
 from cli_base.run_pip_audit import run_pip_audit
 from django.core.management.commands.test import Command as DjangoTestCommand
-from for_runners_ynh import constants
-from for_runners_ynh.constants import PACKAGE_ROOT
-from for_runners_ynh.tests import setup_ynh_tests
 from django_yunohost_integration.local_test import create_local_test
 from manageprojects.utilities.publish import publish_package
 from rich import print
 from rich.console import Console
 from rich.traceback import install as rich_traceback_install
 from rich_click import RichGroup
+
+import for_runners_ynh
+from for_runners_ynh import constants
+from for_runners_ynh.constants import PACKAGE_ROOT
+from for_runners_ynh.tests import setup_ynh_tests
 
 
 logger = logging.getLogger(__name__)
@@ -211,6 +213,14 @@ def test():
     _run_django_test_cli(argv=sys.argv, exit_after_run=True)
 
 
+@cli.command()  # Dummy command
+def coverage():
+    """
+    Run tests and show coverage report.
+    """
+    run_coverage()
+
+
 @cli.command()  # Dummy "tox" command
 def tox():
     """
@@ -273,6 +283,7 @@ def main():
         command_map = {
             'test': _run_django_test_cli,
             'tox': run_tox,
+            'coverage': run_coverage,
         }
         if real_func := command_map.get(command):
             real_func(argv=sys.argv, exit_after_run=True)
