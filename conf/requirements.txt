@@ -246,9 +246,9 @@ django-debug-toolbar==4.4.6 \
     --hash=sha256:36e421cb908c2f0675e07f9f41e3d1d8618dc386392ec82d23bcfcd5d29c7044 \
     --hash=sha256:3beb671c9ec44ffb817fad2780667f172bd1c067dbcabad6268ce39a81335f45
     # via django-for-runners
-django-for-runners==0.18.0 \
-    --hash=sha256:38e6b739242fca5360fa1798ed786b687df9a8f4dba47c4cb90233c756579435 \
-    --hash=sha256:9befcd95e8e8b55eebfecd273059cf9b14965b4f43b150f727dec0b44834dd4c
+django-for-runners==0.18.1 \
+    --hash=sha256:42d2cfe9badeae38b697143fd0364f15bd577c5de8f3d20c0a33b4e51f8ce264 \
+    --hash=sha256:81c237b2311cbf8b7d98821decbc8432e793f17f3942ec12996817f54406d637
     # via for_runners_ynh (pyproject.toml)
 django-import-export==4.1.1 \
     --hash=sha256:16ecc5a9f0df46bde6eb278a3e65ebda0ee1db55656f36440e9fb83f40ab85a3 \
