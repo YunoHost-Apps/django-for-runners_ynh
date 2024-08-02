@@ -57,7 +57,7 @@ systemctl enable $app.service --quiet
 #=================================================
 ynh_script_progression --message="Integrating service in YunoHost..."
 
-yunohost service add $app
+yunohost service add --description $app $app
 
 #=================================================
 # RESTORE THE LOGROTATE CONFIGURATION
