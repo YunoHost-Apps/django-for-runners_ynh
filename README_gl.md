@@ -11,7 +11,7 @@ NON debe editarse manualmente.
 
 *[Le este README en outros idiomas.](./ALL_README.md)*
 
-> *Este paquete permíteche instalar django-for-runners de xeito rápido e doado nun servidor YunoHost.*  
+> *Este paquete permíteche instalar django-for-runners de xeito rápido e doado nun servidor YunoHost.*
 > *Se non usas YunoHost, le a [documentación](https://yunohost.org/install) para saber como instalalo.*
 
 ## Vista xeral
@@ -31,7 +31,7 @@ This package for YunoHost used [django-yunohost-integration](https://github.com/
 More screenshots are here: [jedie.github.io/tree/master/screenshots/django-for-runners](https://github.com/jedie/jedie.github.io/tree/master/screenshots/django-for-runners/README.creole)
 
 
-**Versión proporcionada:** 0.17.4~ynh1
+**Versión proporcionada:** 0.18.0~ynh1
 
 ## Capturas de pantalla
 

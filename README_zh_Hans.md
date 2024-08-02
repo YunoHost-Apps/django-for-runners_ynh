@@ -11,7 +11,7 @@
 
 *[阅读此 README 的其它语言版本。](./ALL_README.md)*
 
-> *通过此软件包，您可以在 YunoHost 服务器上快速、简单地安装 django-for-runners。*  
+> *通过此软件包，您可以在 YunoHost 服务器上快速、简单地安装 django-for-runners。*
 > *如果您还没有 YunoHost，请参阅[指南](https://yunohost.org/install)了解如何安装它。*
 
 ## 概况
@@ -31,7 +31,7 @@ This package for YunoHost used [django-yunohost-integration](https://github.com/
 More screenshots are here: [jedie.github.io/tree/master/screenshots/django-for-runners](https://github.com/jedie/jedie.github.io/tree/master/screenshots/django-for-runners/README.creole)
 
 
-**分发版本：** 0.17.4~ynh1
+**分发版本：** 0.18.0~ynh1
 
 ## 截图
 
