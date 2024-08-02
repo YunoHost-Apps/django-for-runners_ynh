@@ -39,16 +39,16 @@ Usage: ./dev-cli.py [OPTIONS] COMMAND [ARGS]...
 ╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
 ╭─ Commands ───────────────────────────────────────────────────────────────────────────────────────╮
 │ check-code-style            Check code style by calling darker + flake8                          │
-│ coverage                    Run and show coverage.                                               │
+│ coverage                    Run tests and show coverage report.                                  │
 │ diffsettings                Run "diffsettings" manage command against a "local_test" YunoHost    │
 │                             installation.                                                        │
-│ fix-code-style              Fix code style of all for_runners_ynh source code files via darker   │
+│ fix-code-style              Fix code style of all your_cool_package source code files via darker │
 │ install                     Run pip-sync and install 'for_runners_ynh' via pip as editable.      │
 │ local-test                  Build a "local_test" YunoHost installation and start the Django dev. │
 │                             server against it.                                                   │
 │ mypy                        Run Mypy (configured in pyproject.toml)                              │
+│ pip-audit                   Run pip-audit check against current requirements files               │
 │ publish                     Build and upload this project to PyPi                                │
-│ safety                      Run safety check against current requirements files                  │
 │ test                        Compile YunoHost files and run Django unittests                      │
 │ tox                         Run tox                                                              │
 │ update                      Update "requirements*.txt" dependencies files                        │

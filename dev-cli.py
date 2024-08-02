@@ -8,6 +8,7 @@
 """
 
 import hashlib
+import shlex
 import subprocess
 import sys
 import venv
@@ -32,7 +33,7 @@ else:
         sys.exit(-1)
 
 
-assert sys.version_info >= (3, 9), 'Python version is too old!'
+assert sys.version_info >= (3, 10), f'Python version {sys.version_info} is too old!'
 
 
 if sys.platform == 'win32':  # wtf
@@ -77,7 +78,7 @@ def venv_up2date():
 
 
 def verbose_check_call(*popen_args):
-    print(f'\n+ {" ".join(str(arg) for arg in popen_args)}\n')
+    print(f'\n+ {shlex.join(str(arg) for arg in popen_args)}\n')
     return subprocess.check_call(popen_args)
 
 
@@ -86,17 +87,17 @@ def main(argv):
 
     # Create virtual env in ".venv/":
     if not PYTHON_PATH.is_file():
-        print('Create virtual env here:', VENV_PATH.absolute())
+        print(f'Create virtual env here: {VENV_PATH.absolute()}')
         builder = venv.EnvBuilder(symlinks=True, upgrade=True, with_pip=True)
         builder.create(env_dir=VENV_PATH)
+
+    if not PROJECT_SHELL_SCRIPT.is_file() or not venv_up2date():
         # Update pip
         verbose_check_call(PYTHON_PATH, '-m', 'pip', 'install', '-U', 'pip')
 
-    if not PIP_SYNC_PATH.is_file():
         # Install pip-tools
         verbose_check_call(PYTHON_PATH, '-m', 'pip', 'install', '-U', 'pip-tools')
 
-    if not PROJECT_SHELL_SCRIPT.is_file() or not venv_up2date():
         # install requirements via "pip-sync"
         verbose_check_call(PIP_SYNC_PATH, str(DEP_LOCK_PATH))
 
