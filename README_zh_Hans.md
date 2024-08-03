@@ -35,9 +35,7 @@ More screenshots are here: [jedie.github.io/tree/master/screenshots/django-for-r
 
 ## 截图
 
-![django-for-runners 的截图](./doc/screenshots/for_runers_v060_2018_07_31_gpx_track.png)
-![django-for-runners 的截图](./doc/screenshots/for_runners_v040_2018_6_26_gpx_info.png)
-![django-for-runners 的截图](./doc/screenshots/for_runners_v060_2018_07_19_event_costs.png)
+![django-for-runners 的截图](./doc/screenshots/screenshot.png)
 
 ## 文档与资源
 
