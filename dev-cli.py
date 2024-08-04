@@ -20,20 +20,25 @@ def print_no_pip_error():
     print('Hint: "apt-get install python3-venv"\n')
 
 
-try:
-    from ensurepip import version
-except ModuleNotFoundError as err:
-    print(err)
-    print('-' * 100)
-    print_no_pip_error()
-    raise
-else:
-    if not version():
-        print_no_pip_error()
-        sys.exit(-1)
-
-
 assert sys.version_info >= (3, 11), f'Python version {sys.version_info} is too old!'
+
+
+try:
+    import pip  # noqa
+except ModuleNotFoundError:
+    try:
+        from ensurepip import version
+    except ModuleNotFoundError as err:
+        print(err)
+        print('-' * 100)
+        print_no_pip_error()
+        raise
+    else:
+        if not version():
+            print_no_pip_error()
+            sys.exit(-1)
+else:
+    print(f'pip version: {pip.__version__}')
 
 
 if sys.platform == 'win32':  # wtf
