@@ -7,9 +7,8 @@ import django
 from bx_py_utils.test_utils.deny_requests import deny_any_real_request
 from cli_base.cli_tools.verbosity import MAX_LOG_LEVEL, setup_logging
 from django_yunohost_integration.local_test import CreateResults, create_local_test
+from django_yunohost_integration.path_utils import get_project_root
 from rich import print  # noqa
-
-from tests.test_project_setup import get_project_root
 
 
 def pre_configure_tests() -> None:
