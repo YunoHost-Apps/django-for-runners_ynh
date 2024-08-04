@@ -1,12 +1,7 @@
 import os
+import tomllib
 from pathlib import Path
 from unittest import TestCase
-
-
-try:
-    import tomllib  # New in Python 3.11
-except ImportError:
-    import tomli as tomllib
 
 from bx_django_utils.filename import clean_filename
 from bx_py_utils.path import assert_is_dir, assert_is_file
