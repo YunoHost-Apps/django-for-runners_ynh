@@ -7,19 +7,15 @@ readme = "README.md"
 authors = [
     {name = 'Jens Diemer', email = 'git@jensdiemer.de'}
 ]
-requires-python = ">=3.9"  # Stay with 3.9 until YunoHost used >=Debian 11 (Bullseye)
+requires-python = ">=3.11"
 dependencies = [
-    "django_for_runners>=0.18.1",  # https://github.com/jedie/django-for-runners
+    "django_for_runners>=0.19.0",  # https://github.com/jedie/django-for-runners
     #
     # extras "ynh" will install: gunicorn, psycopg2, django-redis and django-axes
     # see: https://github.com/YunoHost-Apps/django_yunohost_integration/blob/main/pyproject.toml
-    "django_yunohost_integration[ynh]",  # https://github.com/YunoHost-Apps/django_yunohost_integration
+    "django_yunohost_integration[ynh]>=0.8.0",  # https://github.com/YunoHost-Apps/django_yunohost_integration
     #
     "cli-base-utilities",  # https://github.com/jedie/cli-base-utilities
-    #
-    # indirect depencies, added because we didn't create the requirements.txt with Python <3.11
-    # See: https://github.com/jazzband/pip-tools/issues/1326
-    "async-timeout",  # needed by redis for python<=3.11.2
 ]
 [project.optional-dependencies]
 dev = [
@@ -46,11 +42,9 @@ dev = [
     # https://github.com/pygments/pygments
     "darker[flynt, isort, color]",
 
-    # indirect depencies added because of bug:
-    # https://github.com/pypa/pip/issues/9644 / https://github.com/jazzband/pip-tools/issues/1866
-    # to avoid errors like:
-    # In --require-hashes mode, all requirements must have their versions pinned with ==. These do not: ...
-    "tomli",  # Only needed for Python <3.11
+    # indirect depencies for Python <=3.11
+    # Work-a-round for: https://github.com/jazzband/pip-tools/issues/1326
+    "backports.tarfile",
 ]
 
 [project.urls]
@@ -89,14 +83,12 @@ src = ['.']
 # YunoHost apps still use "master" istead of "main", isn't it?
 revision = "origin/master..."
 line_length = 119
-verbose = true
 color = true
 skip_string_normalization = true
 diff = false
 check = false
 stdout = false
 isort = true
-flynt = true
 lint = [
     "flake8",
 ]
@@ -138,7 +130,7 @@ exclude_lines = [
 legacy_tox_ini = """
 [tox]
 isolated_build = True
-envlist = py{312,311,310}
+envlist = py{312,311}
 skip_missing_interpreters = True
 
 [testenv]
