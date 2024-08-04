@@ -6,13 +6,11 @@ from unittest import TestCase
 from bx_django_utils.filename import clean_filename
 from bx_py_utils.path import assert_is_dir, assert_is_file
 from django_tools.unittest_utils.project_setup import check_editor_config
+from django_yunohost_integration.path_utils import get_project_root
 from django_yunohost_integration.test_utils import assert_project_version
 from for_runners import __version__ as upstream_version
 
 from for_runners_ynh import __version__
-
-
-PACKAGE_ROOT = Path(__file__).parent.parent
 
 
 def assert_file_contains_string(file_path, string):
@@ -32,7 +30,7 @@ def test_version():
     manifest_version = __version__.replace('+', '~')
 
     assert_file_contains_string(
-        file_path=Path(PACKAGE_ROOT, 'manifest.toml'),
+        file_path=Path(get_project_root(), 'manifest.toml'),
         string=f'version = "{manifest_version}"',
     )
 
@@ -48,7 +46,7 @@ def test_screenshot_filenames():
     """
     https://forum.yunohost.org/t/yunohost-bot-cant-handle-spaces-in-screenshots/19483
     """
-    screenshot_path = PACKAGE_ROOT / 'doc' / 'screenshots'
+    screenshot_path = get_project_root() / 'doc' / 'screenshots'
     assert_is_dir(screenshot_path)
     renamed = []
     for file_path in screenshot_path.iterdir():
@@ -64,12 +62,12 @@ def test_screenshot_filenames():
 
 
 def test_check_editor_config():
-    check_editor_config(package_root=PACKAGE_ROOT)
+    check_editor_config(package_root=get_project_root())
 
 
 class ManifestTestCase(TestCase):
     def test_manifest_toml(self):
-        manifest_path = PACKAGE_ROOT / 'manifest.toml'
+        manifest_path = get_project_root() / 'manifest.toml'
         assert_is_file(manifest_path)
 
         cfg = tomllib.loads(manifest_path.read_text(encoding='UTF-8'))

@@ -9,17 +9,13 @@ authors = [
 ]
 requires-python = ">=3.11"
 dependencies = [
-    "django_for_runners>=0.18.1",  # https://github.com/jedie/django-for-runners
+    "django_for_runners>=0.19.0",  # https://github.com/jedie/django-for-runners
     #
     # extras "ynh" will install: gunicorn, psycopg2, django-redis and django-axes
     # see: https://github.com/YunoHost-Apps/django_yunohost_integration/blob/main/pyproject.toml
-    "django_yunohost_integration[ynh]",  # https://github.com/YunoHost-Apps/django_yunohost_integration
+    "django_yunohost_integration[ynh]>=0.8.0",  # https://github.com/YunoHost-Apps/django_yunohost_integration
     #
     "cli-base-utilities",  # https://github.com/jedie/cli-base-utilities
-    #
-    # indirect depencies, added because we didn't create the requirements.txt with Python <3.11
-    # See: https://github.com/jazzband/pip-tools/issues/1326
-    "async-timeout",  # needed by redis for python<=3.11.2
 ]
 [project.optional-dependencies]
 dev = [
@@ -83,14 +79,12 @@ src = ['.']
 # YunoHost apps still use "master" istead of "main", isn't it?
 revision = "origin/master..."
 line_length = 119
-verbose = true
 color = true
 skip_string_normalization = true
 diff = false
 check = false
 stdout = false
 isort = true
-flynt = true
 lint = [
     "flake8",
 ]
