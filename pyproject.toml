@@ -41,6 +41,10 @@ dev = [
     # https://github.com/pycqa/isort
     # https://github.com/pygments/pygments
     "darker[flynt, isort, color]",
+
+    # indirect depencies for Python <=3.11
+    # Work-a-round for: https://github.com/jazzband/pip-tools/issues/1326
+    "backports.tarfile",
 ]
 
 [project.urls]
