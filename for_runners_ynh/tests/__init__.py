@@ -51,8 +51,6 @@ def setup_ynh_tests() -> None:
 
     django.setup()
 
-    os.chdir(Path(for_runners_ynh.__file__).parent)
-
 
 def load_tests(loader, tests, pattern):
     """
