@@ -86,13 +86,11 @@ myynh_install_python() {
 		if $(dpkg --compare-versions $py_built_version ge $python)
 		then
 			# Built >= Required
-			ynh_print_info --message="Using already used python3 built version..."
-
 			py_app_version="/usr/local/bin/python${py_built_version%.*}"
-
+			ynh_print_info --message="Using already used python3 built version: $py_app_version"
 		else
 			# APT < Minimal & Actual < Minimal => Build & install Python into /usr/local/bin
-			ynh_print_info --message="Building python (may take a while)..."
+			ynh_print_info --message="Building $python (may take a while)..."
 
 			# Store current direcotry
 			local MY_DIR=$(pwd)
@@ -126,21 +124,25 @@ myynh_install_python() {
 	fi
 	# Save python version in settings
 	ynh_app_setting_set --app=$app --key=python --value="$python"
+
+	# Print some version information:
+	ynh_print_info --message="Python version: $($py_app_version -VV)"
+	ynh_print_info --message="Pip version: $($py_app_version -m pip -V)"
 }
 #==================================================================================
 #==================================================================================
 
 myynh_setup_python_venv() {
-    # Always recreate everything fresh with current python version
-    ynh_secure_remove "$data_dir/venv"
-
+    # Install Python if needed:
     myynh_install_python --python="$py_required_version"
 
     # Create a virtualenv with python installed by myynh_install_python():
     # Skip pip because of: https://github.com/YunoHost/issues/issues/1960
-    $py_app_version -m venv --without-pip "$data_dir/venv"
+    ynh_exec_as $app $py_app_version -m venv --clear --upgrade-deps "$data_dir/venv"
 
-    chown -c -R "$app:" "$data_dir"
+	# Print some version information:
+	ynh_print_info --message="venv Python version: $($data_dir/venv/bin/python3 -VV)"
+	ynh_print_info --message="venv Pip version: $($data_dir/venv/bin/python3 -m pip -V)"
 
     # run source in a 'sub shell'
     (
@@ -148,8 +150,7 @@ myynh_setup_python_venv() {
         source "$data_dir/venv/bin/activate"
         set -o nounset
         set -x
-        ynh_exec_as $app $data_dir/venv/bin/python3 -m ensurepip
-        ynh_exec_as $app $data_dir/venv/bin/pip3 install --upgrade wheel pip setuptools
+        ynh_exec_as $app $data_dir/venv/bin/pip3 install --upgrade pip wheel setuptools
         ynh_exec_as $app $data_dir/venv/bin/pip3 install --no-deps -r "$data_dir/requirements.txt"
     )
 }
