@@ -7,8 +7,12 @@ import django
 from bx_py_utils.test_utils.deny_requests import deny_any_real_request
 from cli_base.cli_tools.verbosity import MAX_LOG_LEVEL, setup_logging
 from django_yunohost_integration.local_test import CreateResults, create_local_test
-from django_yunohost_integration.path_utils import get_project_root
 from rich import print  # noqa
+from typeguard import install_import_hook
+
+
+# Check type annotations via typeguard in all tests:
+install_import_hook(packages=('for_runners_ynh',))
 
 
 def pre_configure_tests() -> None:
@@ -27,12 +31,16 @@ def pre_configure_tests() -> None:
 
 
 def setup_ynh_tests() -> None:
+    # Import after "install_import_hook" to check type annotations:
+    import for_runners_ynh
+    from for_runners_ynh.constants import PACKAGE_ROOT
+
     os.environ['DJANGO_SETTINGS_MODULE'] = 'settings'
 
     print('Compile YunoHost files...')
     result: CreateResults = create_local_test(
-        django_settings_path=get_project_root() / 'conf' / 'settings.py',
-        destination=get_project_root() / 'local_test',
+        django_settings_path=PACKAGE_ROOT / 'conf' / 'settings.py',
+        destination=PACKAGE_ROOT / 'local_test',
         runserver=False,
         extra_replacements={
             '__DEBUG_ENABLED__': '0',  # "1" or "0" string
@@ -49,6 +57,8 @@ def setup_ynh_tests() -> None:
         sys.path.insert(0, data_dir)
 
     django.setup()
+
+    os.chdir(Path(for_runners_ynh.__file__).parent)
 
 
 def load_tests(loader, tests, pattern):
