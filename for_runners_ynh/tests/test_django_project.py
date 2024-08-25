@@ -81,7 +81,7 @@ class DjangoYnhTestCase(HtmlAssertionMixin, TestCase):
         assert user.username == 'test'
         assert user.is_active is True
         assert user.is_staff is True  # Set by: conf.setup_user.setup_project_user
-        assert user.is_superuser is False
+        assert user.is_superuser is True  # Set by: conf.setup_user.setup_project_user
 
         self.assert_html_parts(
             response,
@@ -111,7 +111,7 @@ class DjangoYnhTestCase(HtmlAssertionMixin, TestCase):
         assert user.username == 'test'
         assert user.is_active is True
         assert user.is_staff is True  # Set by: conf.setup_user.setup_project_user
-        assert user.is_superuser is False
+        assert user.is_superuser is True  # Set by: conf.setup_user.setup_project_user
 
         assert AccessLog.objects.count() == 1
 
@@ -136,7 +136,7 @@ class DjangoYnhTestCase(HtmlAssertionMixin, TestCase):
         assert user.username == 'test'
         assert user.is_active is True
         assert user.is_staff is True  # Set by: conf.setup_user.setup_project_user
-        assert user.is_superuser is False
+        assert user.is_superuser is True  # Set by: conf.setup_user.setup_project_user
 
         assert AccessLog.objects.count() == 1
 
@@ -163,7 +163,7 @@ class DjangoYnhTestCase(HtmlAssertionMixin, TestCase):
         assert user.username == 'test'
         assert user.is_active is True
         assert user.is_staff is True  # Set by: conf.setup_user.setup_project_user
-        assert user.is_superuser is False
+        assert user.is_superuser is True  # Set by: conf.setup_user.setup_project_user
 
         assert AccessLog.objects.count() == 1
 
