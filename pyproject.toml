@@ -9,11 +9,11 @@ authors = [
 ]
 requires-python = ">=3.11"
 dependencies = [
-    "django_for_runners>=0.19.0",  # https://github.com/jedie/django-for-runners
+    "django_for_runners>=0.20.0",  # https://github.com/jedie/django-for-runners
     #
     # extras "ynh" will install: gunicorn, psycopg2, django-redis and django-axes
     # see: https://github.com/YunoHost-Apps/django_yunohost_integration/blob/main/pyproject.toml
-    "django_yunohost_integration[ynh]>=0.8.0",  # https://github.com/YunoHost-Apps/django_yunohost_integration
+    "django_yunohost_integration[ynh]",  # https://github.com/YunoHost-Apps/django_yunohost_integration
     #
     "cli-base-utilities",  # https://github.com/jedie/cli-base-utilities
 ]
@@ -34,6 +34,7 @@ dev = [
     "EditorConfig",  # https://github.com/editorconfig/editorconfig-core-py
     "pip-audit",  # https://github.com/pypa/pip-audit
     "mypy",  # https://github.com/python/mypy
+    "typeguard",  # https://github.com/agronholm/typeguard/
     "twine",  # https://github.com/pypa/twine
 
     # https://github.com/akaihola/darker
@@ -167,6 +168,7 @@ applied_migrations = [
     "4abd4c0", # 2023-11-25T15:59:31+01:00
     "2f9fd7b", # 2023-11-26T20:13:32+01:00
     "52669d0", # 2024-08-02T15:47:04+02:00
+    "3dac094", # 2024-08-25T15:13:50+02:00
 ]
 
 [manageprojects.cookiecutter_context.cookiecutter]
