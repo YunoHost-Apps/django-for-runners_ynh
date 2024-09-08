@@ -94,12 +94,21 @@ myynh_setup_log_file() {
 }
 
 myynh_fix_file_permissions() {
-    # /var/www/$app/
-    # static files served by nginx, so use www-data group:
-    chown -c -R "$app:www-data" "$install_dir"
-    chmod -c u+rwx,g+rx,o-rwx "$install_dir"
+    pwd
+    ls -la
 
-    # /home/yunohost.app/$app/
-    chown -c -R "$app:$app" "$data_dir"
-    chmod -c u+rwx,g+rwx,o-rwx "$data_dir"
+    ls -la /var/www
+    ls -la "$install_dir"
+
+    ls -la /home/yunohost.app
+    ls -la "$data_dir"
+
+#    # /var/www/$app/
+#    # static files served by nginx, so use www-data group:
+#    chown -c -R "$app:www-data" "$install_dir"
+#    chmod -c u+rwx,g+rx,o-rwx "$install_dir"
+#
+#    # /home/yunohost.app/$app/
+#    chown -c -R "$app:$app" "$data_dir"
+#    chmod -c u+rwx,g+rwx,o-rwx "$data_dir"
 }
