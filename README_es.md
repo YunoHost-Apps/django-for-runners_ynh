@@ -31,7 +31,7 @@ This package for YunoHost used [django-yunohost-integration](https://github.com/
 More screenshots are here: [jedie.github.io/tree/master/screenshots/django-for-runners](https://github.com/jedie/jedie.github.io/tree/master/screenshots/django-for-runners/README.creole)
 
 
-**Versión actual:** 0.20.0~ynh1
+**Versión actual:** 0.20.0~ynh2
 
 ## Capturas
 
@@ -45,7 +45,7 @@ More screenshots are here: [jedie.github.io/tree/master/screenshots/django-for-r
 
 ## Información para desarrolladores
 
-Por favor enviar sus correcciones a la [`branch testing`](https://github.com/YunoHost-Apps/django-for-runners_ynh/tree/testing
+Por favor enviar sus correcciones a la [rama `testing`](https://github.com/YunoHost-Apps/django-for-runners_ynh/tree/testing).
 
 Para probar la rama `testing`, sigue asÍ:
 
