@@ -29,6 +29,7 @@ dev = [
     "autopep8",  # https://github.com/hhatto/autopep8
     "pyupgrade",  # https://github.com/asottile/pyupgrade
     "flake8",  # https://github.com/pycqa/flake8
+    "flake8-bugbear",  # https://github.com/PyCQA/flake8-bugbear
     "pyflakes",  # https://github.com/PyCQA/pyflakes
     "codespell",  # https://github.com/codespell-project/codespell
     "EditorConfig",  # https://github.com/editorconfig/editorconfig-core-py
@@ -43,9 +44,10 @@ dev = [
     # https://github.com/pygments/pygments
     "darker[flynt, isort, color]",
 
-    # indirect depencies for Python <=3.11
-    # Work-a-round for: https://github.com/jazzband/pip-tools/issues/1326
-    "backports.tarfile",
+    # Work-a-round for: https://github.com/jazzband/pip-tools/issues/1866
+    # see also: https://github.com/jazzband/pip-tools/issues/994#issuecomment-1321226661
+    # backports.tarfile is needed for python <3.12
+    'backports.tarfile', # via jaraco-context -> keyring -> twine
 ]
 
 [project.urls]
@@ -56,8 +58,10 @@ Source = "https://github.com/YunoHost-Apps/django-for-runners_ynh"
 for_runners_ynh_app = "for_runners_ynh.__main__:main"
 for_runners_ynh_dev = "for_runners_ynh.cli.dev:main"
 
+
 [ynh-integration]
 local_settings_source= "local_settings_source.py"
+
 
 [build-system]
 requires = ["setuptools>=61.0", "setuptools_scm>=7.1"]
@@ -169,6 +173,7 @@ applied_migrations = [
     "2f9fd7b", # 2023-11-26T20:13:32+01:00
     "52669d0", # 2024-08-02T15:47:04+02:00
     "3dac094", # 2024-08-25T15:13:50+02:00
+    "0e20cd1", # 2024-09-26T19:08:01+02:00
 ]
 
 [manageprojects.cookiecutter_context.cookiecutter]
