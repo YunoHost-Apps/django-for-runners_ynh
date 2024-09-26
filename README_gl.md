@@ -31,7 +31,7 @@ This package for YunoHost used [django-yunohost-integration](https://github.com/
 More screenshots are here: [jedie.github.io/tree/master/screenshots/django-for-runners](https://github.com/jedie/jedie.github.io/tree/master/screenshots/django-for-runners/README.creole)
 
 
-**Versión proporcionada:** 0.20.0~ynh1
+**Versión proporcionada:** 0.20.0~ynh2
 
 ## Capturas de pantalla
 
