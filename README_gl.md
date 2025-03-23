@@ -5,7 +5,9 @@ NON debe editarse manualmente.
 
 # django-for-runners para YunoHost
 
-[![Nivel de integración](https://dash.yunohost.org/integration/django-for-runners.svg)](https://ci-apps.yunohost.org/ci/apps/django-for-runners/) ![Estado de funcionamento](https://ci-apps.yunohost.org/ci/badges/django-for-runners.status.svg) ![Estado de mantemento](https://ci-apps.yunohost.org/ci/badges/django-for-runners.maintain.svg)
+[![Nivel de integración](https://apps.yunohost.org/badge/integration/django-for-runners)](https://ci-apps.yunohost.org/ci/apps/django-for-runners/)
+![Estado de funcionamento](https://apps.yunohost.org/badge/state/django-for-runners)
+![Estado de mantemento](https://apps.yunohost.org/badge/maintained/django-for-runners)
 
 [![Instalar django-for-runners con YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=django-for-runners)
 
@@ -31,7 +33,7 @@ This package for YunoHost used [django-yunohost-integration](https://github.com/
 More screenshots are here: [jedie.github.io/tree/master/screenshots/django-for-runners](https://github.com/jedie/jedie.github.io/tree/master/screenshots/django-for-runners/README.creole)
 
 
-**Versión proporcionada:** 0.20.0~ynh2
+**Versión proporcionada:** 0.20.0~ynh3
 
 ## Capturas de pantalla
 
