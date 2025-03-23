@@ -170,6 +170,7 @@ applied_migrations = [
     "0e20cd1", # 2024-09-26T19:08:01+02:00
     "e2b20e5", # 2024-09-26T19:43:41+02:00
     "a36dd75", # 2025-03-23T11:39:23+01:00
+    "b7f2cb5", # 2025-03-23T15:08:42+01:00
 ]
 
 [manageprojects.cookiecutter_context.cookiecutter]
@@ -185,7 +186,7 @@ ynh_app_pkg_name = "for_runners_ynh"
 ynh_app_url = "https://github.com/YunoHost-Apps/django-for-runners_ynh"
 bug_tracker_url = "https://github.com/jedie/django-for-runners/issues"
 upstream_version = "0.20.0"
-ynh_version = "+ynh3"
+ynh_version = "+ynh4"
 package_description = "YunoHost app package for https://github.com/jedie/django-for-runners"
 license = "GPL-3.0-or-later"
 _template = "https://github.com/jedie/cookiecutter_templates/"

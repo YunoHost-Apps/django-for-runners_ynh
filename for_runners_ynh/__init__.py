@@ -4,5 +4,5 @@ YunoHost app package for https://github.com/jedie/django-for-runners
 """
 
 # See https://packaging.python.org/en/latest/specifications/version-specifiers/
-__version__ = '0.20.0+ynh3'
+__version__ = '0.20.0+ynh4'
 __author__ = 'Jens Diemer <git@jensdiemer.de>'
