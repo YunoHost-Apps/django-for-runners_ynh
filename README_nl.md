@@ -5,7 +5,9 @@ Hij mag NIET handmatig aangepast worden.
 
 # django-for-runners voor Yunohost
 
-[![Integratieniveau](https://dash.yunohost.org/integration/django-for-runners.svg)](https://ci-apps.yunohost.org/ci/apps/django-for-runners/) ![Mate van functioneren](https://ci-apps.yunohost.org/ci/badges/django-for-runners.status.svg) ![Onderhoudsstatus](https://ci-apps.yunohost.org/ci/badges/django-for-runners.maintain.svg)
+[![Integratieniveau](https://apps.yunohost.org/badge/integration/django-for-runners)](https://ci-apps.yunohost.org/ci/apps/django-for-runners/)
+![Mate van functioneren](https://apps.yunohost.org/badge/state/django-for-runners)
+![Onderhoudsstatus](https://apps.yunohost.org/badge/maintained/django-for-runners)
 
 [![django-for-runners met Yunohost installeren](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=django-for-runners)
 
@@ -31,7 +33,7 @@ This package for YunoHost used [django-yunohost-integration](https://github.com/
 More screenshots are here: [jedie.github.io/tree/master/screenshots/django-for-runners](https://github.com/jedie/jedie.github.io/tree/master/screenshots/django-for-runners/README.creole)
 
 
-**Geleverde versie:** 0.20.0~ynh2
+**Geleverde versie:** 0.20.0~ynh3
 
 ## Schermafdrukken
 

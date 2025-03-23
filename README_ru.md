@@ -5,7 +5,9 @@
 
 # django-for-runners для YunoHost
 
-[![Уровень интеграции](https://dash.yunohost.org/integration/django-for-runners.svg)](https://ci-apps.yunohost.org/ci/apps/django-for-runners/) ![Состояние работы](https://ci-apps.yunohost.org/ci/badges/django-for-runners.status.svg) ![Состояние сопровождения](https://ci-apps.yunohost.org/ci/badges/django-for-runners.maintain.svg)
+[![Уровень интеграции](https://apps.yunohost.org/badge/integration/django-for-runners)](https://ci-apps.yunohost.org/ci/apps/django-for-runners/)
+![Состояние работы](https://apps.yunohost.org/badge/state/django-for-runners)
+![Состояние сопровождения](https://apps.yunohost.org/badge/maintained/django-for-runners)
 
 [![Установите django-for-runners с YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=django-for-runners)
 
@@ -31,7 +33,7 @@ This package for YunoHost used [django-yunohost-integration](https://github.com/
 More screenshots are here: [jedie.github.io/tree/master/screenshots/django-for-runners](https://github.com/jedie/jedie.github.io/tree/master/screenshots/django-for-runners/README.creole)
 
 
-**Поставляемая версия:** 0.20.0~ynh2
+**Поставляемая версия:** 0.20.0~ynh3
 
 ## Снимки экрана
 
