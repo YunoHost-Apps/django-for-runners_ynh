@@ -5,7 +5,9 @@ No se debe editar a mano.
 
 # django-for-runners para Yunohost
 
-[![Nivel de integración](https://dash.yunohost.org/integration/django-for-runners.svg)](https://ci-apps.yunohost.org/ci/apps/django-for-runners/) ![Estado funcional](https://ci-apps.yunohost.org/ci/badges/django-for-runners.status.svg) ![Estado En Mantención](https://ci-apps.yunohost.org/ci/badges/django-for-runners.maintain.svg)
+[![Nivel de integración](https://apps.yunohost.org/badge/integration/django-for-runners)](https://ci-apps.yunohost.org/ci/apps/django-for-runners/)
+![Estado funcional](https://apps.yunohost.org/badge/state/django-for-runners)
+![Estado En Mantención](https://apps.yunohost.org/badge/maintained/django-for-runners)
 
 [![Instalar django-for-runners con Yunhost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=django-for-runners)
 
@@ -31,7 +33,7 @@ This package for YunoHost used [django-yunohost-integration](https://github.com/
 More screenshots are here: [jedie.github.io/tree/master/screenshots/django-for-runners](https://github.com/jedie/jedie.github.io/tree/master/screenshots/django-for-runners/README.creole)
 
 
-**Versión actual:** 0.20.0~ynh1
+**Versión actual:** 0.20.0~ynh3
 
 ## Capturas
 
@@ -45,7 +47,7 @@ More screenshots are here: [jedie.github.io/tree/master/screenshots/django-for-r
 
 ## Información para desarrolladores
 
-Por favor enviar sus correcciones a la [`branch testing`](https://github.com/YunoHost-Apps/django-for-runners_ynh/tree/testing
+Por favor enviar sus correcciones a la [rama `testing`](https://github.com/YunoHost-Apps/django-for-runners_ynh/tree/testing).
 
 Para probar la rama `testing`, sigue asÍ:
 

@@ -5,7 +5,9 @@ Ini TIDAK boleh diedit dengan tangan.
 
 # django-for-runners untuk YunoHost
 
-[![Tingkat integrasi](https://dash.yunohost.org/integration/django-for-runners.svg)](https://ci-apps.yunohost.org/ci/apps/django-for-runners/) ![Status kerja](https://ci-apps.yunohost.org/ci/badges/django-for-runners.status.svg) ![Status pemeliharaan](https://ci-apps.yunohost.org/ci/badges/django-for-runners.maintain.svg)
+[![Tingkat integrasi](https://apps.yunohost.org/badge/integration/django-for-runners)](https://ci-apps.yunohost.org/ci/apps/django-for-runners/)
+![Status kerja](https://apps.yunohost.org/badge/state/django-for-runners)
+![Status pemeliharaan](https://apps.yunohost.org/badge/maintained/django-for-runners)
 
 [![Pasang django-for-runners dengan YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=django-for-runners)
 
@@ -31,7 +33,7 @@ This package for YunoHost used [django-yunohost-integration](https://github.com/
 More screenshots are here: [jedie.github.io/tree/master/screenshots/django-for-runners](https://github.com/jedie/jedie.github.io/tree/master/screenshots/django-for-runners/README.creole)
 
 
-**Versi terkirim:** 0.20.0~ynh1
+**Versi terkirim:** 0.20.0~ynh3
 
 ## Tangkapan Layar
 
