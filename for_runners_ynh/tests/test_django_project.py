@@ -9,7 +9,7 @@ from django.test.testcases import TestCase
 from django.urls.base import reverse
 from django_yunohost_integration.test_utils import generate_basic_auth
 from django_yunohost_integration.yunohost.tests.test_ynh_jwt import create_jwt
-from for_runners_project import __version__
+
 
 class DjangoYnhTestCase(HtmlAssertionMixin, TestCase):
     maxDiff = None
@@ -75,8 +75,17 @@ class DjangoYnhTestCase(HtmlAssertionMixin, TestCase):
     def test_urls(self):
         self.assertEqual(settings.PATH_URL, 'app_path')
         self.assertEqual(settings.ROOT_URLCONF, 'urls')
-        self.assertEqual(reverse('admin:index'), '/app_path/')
+        self.assertEqual(settings.LOGIN_URL, 'ssowat-login')
+        self.assertEqual(reverse('ssowat-login'), '/app_path/sso-login/')
 
+        self.assertEqual(reverse('admin:index'), '/app_path/')  # for-runners app is in root
+
+        # After login redirected to app root path:
+        self.assertEqual(settings.LOGIN_REDIRECT_URL, '/app_path/')
+
+        #########################################################################################
+        # non-HTTPS request should be redirected to HTTPS:
+        self.assertIs(settings.SECURE_SSL_REDIRECT, True)
         response = self.client.get('/', secure=True)
         self.assertRedirects(response, expected_url='/app_path/', fetch_redirect_response=False)
 
@@ -97,7 +106,7 @@ class DjangoYnhTestCase(HtmlAssertionMixin, TestCase):
 
         self.client.cookies['yunohost.portal'] = create_jwt(username='test')
 
-        with self.assertLogs('django_yunohost_integration') as logs:
+        with self.assertLogs('django_yunohost_integration') as logs, self.assertLogs('for_runners') as app_logs:
             response = self.client.get(
                 path='/app_path/',
                 HTTP_YNH_USER='test',
@@ -117,9 +126,10 @@ class DjangoYnhTestCase(HtmlAssertionMixin, TestCase):
         self.assert_html_parts(
             response,
             parts=(
-                f'<title>Site administration | Django-ForRunners v{__version__}</title>',
-                '<strong>test</strong>',
-                '<a href="/app_path/for_runners/gpxmodel/">GPX Tracks</a>',
+                '<title>Example Project / Debug View</title>',
+                '<a href="/app_path/admin/">Django Admin</a>',
+                '<tr><td>User:</td><td>test</td></tr>',
+                f'<tr><td>Process ID:</td><td>{os.getpid()}</td></tr>',
             ),
         )
         self.assertEqual(
@@ -132,6 +142,7 @@ class DjangoYnhTestCase(HtmlAssertionMixin, TestCase):
                 'INFO:django_yunohost_integration.sso_auth.auth_middleware:Remote user "test" was logged in',
             ],
         )
+        self.assertEqual(app_logs.output, ['INFO:django_example.views:DebugView request from user: test'])
 
     @override_settings(SECURE_SSL_REDIRECT=False)
     def test_create_unknown_user(self):
@@ -139,7 +150,7 @@ class DjangoYnhTestCase(HtmlAssertionMixin, TestCase):
 
         self.client.cookies['yunohost.portal'] = create_jwt(username='test')
 
-        with self.assertLogs('django_yunohost_integration') as logs:
+        with self.assertLogs('django_yunohost_integration') as logs, self.assertLogs('for_runners') as app_logs:
             response = self.client.get(
                 path='/app_path/',
                 HTTP_YNH_USER='test',
@@ -159,9 +170,9 @@ class DjangoYnhTestCase(HtmlAssertionMixin, TestCase):
         self.assert_html_parts(
             response,
             parts=(
-                f'<title>Site administration | Django-ForRunners v{__version__}</title>',
-                '<strong>test</strong>',
-                '<a href="/app_path/for_runners/gpxmodel/">GPX Tracks</a>',
+                '<a href="/app_path/admin/">Django Admin</a>',
+                '<tr><td>User:</td><td>test</td></tr>',
+                f'<tr><td>Process ID:</td><td>{os.getpid()}</td></tr>',
             ),
         )
         self.assertEqual(
@@ -174,6 +185,7 @@ class DjangoYnhTestCase(HtmlAssertionMixin, TestCase):
                 'INFO:django_yunohost_integration.sso_auth.auth_middleware:Remote user "test" was logged in',
             ],
         )
+        self.assertEqual(app_logs.output, ['INFO:django_example.views:DebugView request from user: test'])
 
     @override_settings(SECURE_SSL_REDIRECT=False)
     def test_wrong_cookie(self):

@@ -2,10 +2,11 @@ import tomllib
 
 from bx_django_utils.filename import clean_filename
 from bx_py_utils.path import assert_is_dir, assert_is_file
+from cli_base.cli_tools.code_style import assert_code_style
 from django.test.testcases import TestCase
-from django_tools.unittest_utils.project_setup import check_editor_config
 from django_yunohost_integration.path_utils import get_project_root
 from for_runners import __version__ as upstream_version
+from manageprojects.test_utils.project_setup import check_editor_config
 
 from for_runners_ynh import __version__ as ynh_pkg_version
 
@@ -39,6 +40,10 @@ class ProjectSetupTestCase(TestCase):
         manifest_version = ynh_pkg_version.replace('+', '~')
         self.assertEqual(self.manifest_cfg['version'], manifest_version)
 
+    def test_code_style(self):
+        return_code = assert_code_style(package_root=get_project_root())
+        self.assertEqual(return_code, 0, 'Code style error, see output above!')
+
     def test_screenshot_filenames(self):
         """
         https://forum.yunohost.org/t/yunohost-bot-cant-handle-spaces-in-screenshots/19483
@@ -65,7 +70,6 @@ class ProjectSetupTestCase(TestCase):
         self.assertEqual(
             set(self.manifest_cfg['install'].keys()),
             {
-                'update_python',
                 'admin',
                 'admin_email',
                 'debug_enabled',

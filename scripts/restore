@@ -20,6 +20,9 @@ ynh_script_progression "Restoring $app main directory..."
 ynh_restore "$install_dir"
 ynh_restore "$data_dir"
 
+# See conf/gunicorn.conf.py
+if [ -f "$data_dir/gunicorn.pid" ]; then ynh_safe_rm "$data_dir/gunicorn.pid"; fi
+
 ynh_script_progression "Set $app file permissions..."
 myynh_fix_file_permissions
 
@@ -28,7 +31,7 @@ myynh_fix_file_permissions
 # Maybe the backup contains a other Python version
 #=================================================
 
-# Create a new virtualenv:
+ynh_script_progression "Setup Python virtualenv for $app ..."
 myynh_setup_python_venv
 
 #=================================================

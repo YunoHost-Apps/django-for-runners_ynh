@@ -67,8 +67,7 @@ ynh_config_add_logrotate "$log_file"
 #=================================================
 # PYTHON VIRTUALENV
 #=================================================
-cp ../conf/install_python.py "$data_dir/install_python.py"
-cp ../conf/setup_python.py "$data_dir/setup_python.py"
+ynh_script_progression "Setup Python virtualenv for $app ..."
 cp ../conf/requirements.txt "$data_dir/requirements.txt"
 myynh_setup_python_venv
 
@@ -101,9 +100,6 @@ cd "$data_dir" || exit
 
 ./manage.py migrate --no-input
 ./manage.py collectstatic --no-input
-
-# Call special Django-For-Runner manage command:
-./manage.py fill_basedata
 
 # Create/update Django superuser (set unusable password, because auth done via SSOwat):
 ./manage.py create_superuser --username="$admin" --email="$(ynh_user_get_info --username="$admin" --key=mail)"

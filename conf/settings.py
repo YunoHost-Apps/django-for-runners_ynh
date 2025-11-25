@@ -1,3 +1,5 @@
+# ruff: noqa: F405
+
 ################################################################################
 ################################################################################
 
@@ -83,10 +85,16 @@ AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
 )
 
-LOGIN_REDIRECT_URL = None
-LOGIN_URL = '/yunohost/sso/'
-LOGOUT_REDIRECT_URL = '/yunohost/sso/'
-# /yunohost/sso/?action=logout
+# SSOwat should be used for login and should redirect back to the YunoHost App.
+# Use SSOwatLoginRedirectView for that:
+LOGIN_URL = 'ssowat-login'
+
+# After login, redirect back to the YunoHost App:
+if PATH_URL:
+    LOGIN_REDIRECT_URL = f'/{PATH_URL}/'
+else:
+    # Installed to domain root, without a path prefix:
+    LOGIN_REDIRECT_URL = '/'
 
 ROOT_URLCONF = 'urls'  # .../conf/urls.py
 
@@ -188,7 +196,11 @@ LOGGING = {
         '': {'handlers': ['log_file', 'mail_admins'], 'level': LOG_LEVEL, 'propagate': False},
         'django': {'handlers': ['log_file', 'mail_admins'], 'level': LOG_LEVEL, 'propagate': False},
         'axes': {'handlers': ['log_file', 'mail_admins'], 'level': LOG_LEVEL, 'propagate': False},
-        'django_yunohost_integration': {'handlers': ['log_file', 'mail_admins'], 'level': LOG_LEVEL, 'propagate': False},
+        'django_yunohost_integration': {
+            'handlers': ['log_file', 'mail_admins'],
+            'level': LOG_LEVEL,
+            'propagate': False,
+        },
         'for_runners': {'handlers': ['log_file', 'mail_admins'], 'level': LOG_LEVEL, 'propagate': False},
     },
 }
